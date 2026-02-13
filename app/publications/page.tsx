@@ -12,6 +12,7 @@ interface Publication {
   date: string;
   year: number;
   img?: string;
+  title: string;
 }
 
 interface SectionHeader {
@@ -43,13 +44,15 @@ export default function PublicationsPage() {
         
         // Extract publications from publicationpagecard array
         const publicationsArray = d.publicationpagecard || [];
-        const formatted = publicationsArray.map((item: any) => {
+        
+        const formatted = publicationsArray.map((item: any, index: number) => {
           const dateObj = item.date ? new Date(item.date) : new Date();
           return {
             id: item.id,
-            date: dateObj.toLocaleDateString(),
-            year: dateObj.getFullYear(),
+            date: item.date ? dateObj.toLocaleDateString() : 'No date',
+            year: item.date ? dateObj.getFullYear() : new Date().getFullYear(),
             img: formatImageUrl(item.img?.url),
+            title: item.title || `Publication ${index + 1}`,
           };
         });
         
@@ -121,15 +124,24 @@ export default function PublicationsPage() {
         {filtered.length > 0 ? filtered.map((publication) => (
           <div
             key={publication.id}
-            className="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-200"
+            className="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-200 p-4"
           >
-            {publication.img && publication.img !== '' && (
+            {publication.img && publication.img !== '' ? (
               <img
                 src={publication.img}
                 alt={`Publication ${publication.year}`}
-                className="w-full h-auto object-cover"
+                className="w-full h-48 object-cover rounded-lg mb-3"
               />
+            ) : (
+              <div className="w-full h-48 bg-gray-100 rounded-lg mb-3 flex items-center justify-center">
+                <span className="text-gray-400 text-sm">No Image</span>
+              </div>
             )}
+            <h3 className="font-semibold text-gray-800 mb-2">{publication.title}</h3>
+            <p className="text-sm text-gray-600 flex items-center gap-1">
+              <Calendar size={14} />
+              {publication.date}
+            </p>
           </div>
         )) : (
           <div className="col-span-4 text-center py-12">
