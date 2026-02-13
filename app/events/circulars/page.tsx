@@ -48,8 +48,8 @@ export default function CircularsPage() {
         });
         
         // Extract unique years
-        const uniqueYears = [...new Set(d.circularcard?.map((item: any) => new Date(item.date).getFullYear().toString()) || [])].sort();
-        setYears(uniqueYears);
+        const uniqueYears = [...new Set(d.circularcard?.map((item: any) => new Date(item.date).getFullYear().toString()) || [])] as string[];
+        setYears(uniqueYears.sort());
       } catch (err) {
         console.error("Circulars fetch error:", err);
       }
