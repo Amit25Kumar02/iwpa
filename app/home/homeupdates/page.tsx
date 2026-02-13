@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { ArrowRight, Calendar } from "lucide-react";
 
+import { formatImageUrl } from "@/lib/utils";
+
 interface Circular {
   id: number;
   heading: string;
@@ -44,7 +46,7 @@ export default function CircularsSection() {
         // Header
         setHeader({
           badge: d.badge,
-          badge_img: d.badge_img?.url ? `${API}${d.badge_img.url}` : undefined,
+          badge_img: formatImageUrl(d.badge_img?.url),
           title: d.title,
         });
 

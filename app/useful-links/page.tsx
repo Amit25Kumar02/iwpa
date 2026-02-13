@@ -5,6 +5,8 @@ import axios from "axios";
 import InnerPageLayout from "@/components/layout/InnerPageLayout";
 import { ArrowRight } from "lucide-react";
 
+import { formatImageUrl } from "@/lib/utils";
+
 interface LinkItem {
   lable: string;
   button: string;
@@ -40,7 +42,7 @@ export default function UsefulLinksPage() {
 
         setData({
           badge: d.badge,
-          badge_img: d.badge_img?.url ? `${API}${d.badge_img.url}` : undefined,
+          badge_img: formatImageUrl(d.badge_img?.url),
           title: d.title,
           link_category: d.link_category || [],
         });
@@ -65,7 +67,7 @@ export default function UsefulLinksPage() {
           {/* Header */}
           <div className="text-center mb-8 md:mb-12">
             <span className="inline-flex items-center gap-2 bg-[#1F7A4D0F] border-[0.86px] border-[#1F7A4D33] text-[#1F7A4D] px-3 md:px-4 py-2 rounded-md text-xs md:text-sm font-medium mb-4">
-              {data.badge_img && (
+              {data.badge_img && data.badge_img !== '' && (
                 <img src={data.badge_img} alt="badge" className="w-3 h-3 md:w-4 md:h-4" />
               )}
               {data.badge}

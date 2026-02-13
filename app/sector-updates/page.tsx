@@ -5,6 +5,8 @@ import axios from "axios";
 import InnerPageLayout from "@/components/layout/InnerPageLayout";
 import { CalendarDays, Download } from "lucide-react";
 
+import { formatImageUrl } from "@/lib/utils";
+
 interface UpdateItem {
   id: number;
   heading: string;
@@ -43,7 +45,7 @@ export default function SectorUpdatesPage() {
 
         setData({
           badge: d.badge,
-          badge_img: d.badge_img?.[0]?.url ? `${API}${d.badge_img[0].url}` : undefined,
+          badge_img: formatImageUrl(d.badge_img?.[0]?.url),
           title: d.title,
           updates: formattedUpdates,
         });
@@ -65,7 +67,7 @@ export default function SectorUpdatesPage() {
       <div className="text-center mb-12 md:px-20">
         {data.badge && (
           <span className="inline-flex items-center gap-2 bg-[#1F7A4D0F] border-[0.86px] border-[#1F7A4D33] text-[#1F7A4D] px-4 py-2 rounded-md text-sm font-medium mb-4">
-            {data.badge_img && (
+            {data.badge_img && data.badge_img !== '' && (
               <img
                 src={data.badge_img}
                 alt="badge"

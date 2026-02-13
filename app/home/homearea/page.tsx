@@ -5,6 +5,8 @@ import axios from "axios";
 import Link from "next/link";
 import { Users, Target, BookOpen, ArrowUpRight } from "lucide-react";
 
+import { formatImageUrl } from "@/lib/utils";
+
 interface Area {
   id: number;
   title: string;
@@ -37,12 +39,10 @@ export default function KeyFocusAreasSection() {
         setData({
           badge: d.badge,
           heading: d.heading,
-          badge_img: d.badge_img?.url
-            ? `${process.env.NEXT_PUBLIC_STRAPI_URL}${d.badge_img.url}`
-            : "",
+          badge_img: formatImageUrl(d.badge_img?.url),
           areas: d.homeareacard?.map((item: any) => ({
             ...item,
-            img: item.img?.url ? `${process.env.NEXT_PUBLIC_STRAPI_URL}${item.img.url}` : ""
+            img: formatImageUrl(item.img?.url)
           })) || []
         });
       } catch (error) {

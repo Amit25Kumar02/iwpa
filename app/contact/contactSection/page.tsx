@@ -5,6 +5,8 @@ import axios from "axios";
 import toast, { Toaster } from 'react-hot-toast';
 import { ArrowUpRight } from "lucide-react";
 
+import { formatImageUrl } from "@/lib/utils";
+
 interface ContactData {
   badge: string;
   badge_img?: string;
@@ -33,9 +35,9 @@ export default function ContactSection() {
 
       setData({
         badge: d.badge,
-        badge_img: d.badge_img?.url ? `${API}${d.badge_img.url}` : undefined,
+        badge_img: formatImageUrl(d.badge_img?.url),
         title: d.title,
-        image: d.img?.url ? `${API}${d.img.url}` : "",
+        image: formatImageUrl(d.img?.url),
       });
     };
 

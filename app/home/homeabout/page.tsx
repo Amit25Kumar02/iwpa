@@ -71,8 +71,16 @@ export default function AboutAssociationSection() {
         <div className="order-2 lg:order-1 text-center lg:text-left">
           {/* Badge */}
           <span className="inline-flex items-center gap-2 bg-[#0B6B3A14] text-[#0B6B3A] px-3 md:px-4 py-2 rounded-md text-xs md:text-sm font-medium mb-4 md:mb-5">
-            {data.badge_img && (
-              <img src={data.badge_img} alt="badge icon" className="w-3 h-3 md:w-4 md:h-4" />
+            {data.badge_img && data.badge_img !== '' && (
+              <img 
+                src={data.badge_img} 
+                alt="badge icon" 
+                className="w-3 h-3 md:w-4 md:h-4" 
+                onError={(e) => {
+                  console.log('Badge image failed to load:', data.badge_img);
+                  e.currentTarget.style.display = 'none';
+                }}
+              />
             )}
             {data.badge}
           </span>
@@ -93,10 +101,26 @@ export default function AboutAssociationSection() {
             {data.homeaboutcard?.map((card, index) => (
               <div key={index} className="flex gap-3 md:gap-4 items-start">
                 <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-[#F1F5F9] flex items-center justify-center flex-shrink-0">
-                  {card.icon ? (
-                    <img src={card.icon} alt="icon" className="w-5 h-5 md:w-6 md:h-6" />
-                  ) : data.icon ? (
-                    <img src={data.icon} alt="icon" className="w-5 h-5 md:w-6 md:h-6" />
+                  {card.icon && card.icon !== '' ? (
+                    <img 
+                      src={card.icon} 
+                      alt="icon" 
+                      className="w-5 h-5 md:w-6 md:h-6" 
+                      onError={(e) => {
+                        console.log('Card icon failed to load:', card.icon);
+                        e.currentTarget.style.display = 'none';
+                      }}
+                    />
+                  ) : data.icon && data.icon !== '' ? (
+                    <img 
+                      src={data.icon} 
+                      alt="icon" 
+                      className="w-5 h-5 md:w-6 md:h-6" 
+                      onError={(e) => {
+                        console.log('Default icon failed to load:', data.icon);
+                        e.currentTarget.style.display = 'none';
+                      }}
+                    />
                   ) : (
                     <div className="w-5 h-5 md:w-6 md:h-6 bg-[#0B6B3A] rounded-full" />
                   )}
@@ -122,11 +146,18 @@ export default function AboutAssociationSection() {
         <div className="relative order-1 lg:order-2">
           <div className="absolute -top-4 -right-4 md:-top-6 md:-right-6 w-full h-full bg-[#0B6B3A1A] rounded-2xl rotate-3 max-w-[300px] max-h-[300px] md:max-w-[400px] md:max-h-[400px] lg:max-w-none lg:max-h-none"></div>
 
-          <img
-            src={data.img}
-            alt="Association"
-            className="relative rounded-2xl shadow-lg object-cover w-full h-[250px] md:h-[350px] lg:h-auto"
-          />
+          {data.img && (
+            <img
+              src={data.img}
+              alt="Association"
+              className="relative rounded-2xl shadow-lg object-cover w-full h-[250px] md:h-[350px] lg:h-auto"
+              onError={(e) => {
+                console.log('Image failed to load:', data.img);
+                e.currentTarget.style.display = 'none';
+              }}
+              onLoad={() => console.log('Image loaded successfully:', data.img)}
+            />
+          )}
         </div>
       </div>
     </section>

@@ -5,6 +5,8 @@ import axios from "axios";
 import InnerPageLayout from "@/components/layout/InnerPageLayout";
 import { Calendar } from "lucide-react";
 
+import { formatImageUrl } from "@/lib/utils";
+
 interface Publication {
   id: number;
   date: string;
@@ -30,24 +32,24 @@ export default function PublicationsPage() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get(`${API}/api/publication?populate[0]=badge_img&populate[1]=publicationpagecard&populate[2]=publicationpagecard.img`);
+        const res = await axios.get(`${API}/api/publication?populate=*`);
         const d = res.data.data;
         
         setHeader({
           badge: d.badge,
-          badge_img: d.badge_img?.url ? `${API}${d.badge_img.url}` : undefined,
+          badge_img: formatImageUrl(d.badge_img?.url),
           title: d.title,
         });
         
         // Extract publications from publicationpagecard array
         const publicationsArray = d.publicationpagecard || [];
         const formatted = publicationsArray.map((item: any) => {
-          const dateObj = new Date(item.date);
+          const dateObj = item.date ? new Date(item.date) : new Date();
           return {
             id: item.id,
             date: dateObj.toLocaleDateString(),
             year: dateObj.getFullYear(),
-            img: item.img?.url ? `${API}${item.img.url}` : undefined,
+            img: formatImageUrl(item.img?.url),
           };
         });
         
@@ -79,7 +81,7 @@ export default function PublicationsPage() {
           <div className="text-center mb-12 md:px-20">
         {header?.badge && (
           <span className="inline-flex items-center gap-2 bg-[#1F7A4D0F] border-[0.86px] border-[#1F7A4D33] text-[#1F7A4D] px-4 py-2 rounded-md text-sm font-medium mb-4">
-            {header.badge_img && (
+            {header.badge_img && header.badge_img !== '' && (
               <img
                 src={header.badge_img}
                 alt="badge"
@@ -116,27 +118,25 @@ export default function PublicationsPage() {
 
       {/* Publication Grid */}
       <div className="grid md:grid-cols-4 gap-6 md:px-20">
-        {filtered.map((publication) => (
+        {filtered.length > 0 ? filtered.map((publication) => (
           <div
             key={publication.id}
             className="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-200"
           >
-            {publication.img && (
+            {publication.img && publication.img !== '' && (
               <img
                 src={publication.img}
                 alt={`Publication ${publication.year}`}
                 className="w-full h-auto object-cover"
               />
             )}
-            
-            {/* <div className="p-4 text-center">
-              <div className="flex items-center justify-center gap-2 text-gray-600">
-                <Calendar size={16} />
-                <span className="text-sm">{publication.date}</span>
-              </div>
-            </div> */}
           </div>
-        ))}
+        )) : (
+          <div className="col-span-4 text-center py-12">
+            <p className="text-gray-500 text-lg">No publications available at the moment.</p>
+            <p className="text-gray-400 text-sm mt-2">Please check back later for updates.</p>
+          </div>
+        )}
       </div>
         </>
       )}

@@ -45,7 +45,7 @@ export default function ConferencesPage() {
           <span className="inline-flex items-center gap-2 text-[#1F7A4D] bg-[#1F7A4D0F] px-4 py-2 rounded text-sm">
             {header?.badge_img?.[0]?.url && (
               <img
-                src={header.badge_img[0].url}
+                src={formatImageUrl(header.badge_img[0].url)}
                 alt="badge"
                 className="w-4 h-4"
               />
@@ -67,9 +67,9 @@ export default function ConferencesPage() {
             >
               {event.img?.url && (
                 <img
-                  src={event.img.url}
+                  src={formatImageUrl(event.img.url)}
                   alt="Conference"
-                  className="rounded-lg w-full h-[220px] "
+                  className="rounded-lg w-full h-[220px] object-cover"
                 />
               )}
             </div>

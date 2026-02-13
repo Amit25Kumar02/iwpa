@@ -2,6 +2,8 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
+import { formatImageUrl } from "@/lib/utils";
+
 interface OEMCard {
   heading: string;
   img?: {
@@ -31,7 +33,7 @@ export default function MemberShowcase() {
 
         setData({
           badge: d.badge,
-          badge_img: d.badge_img?.url ? `${API}${d.badge_img.url}` : undefined,
+          badge_img: formatImageUrl(d.badge_img?.url),
           title: d.title,
           oemcard: d.oemcard || [],
         });
@@ -76,7 +78,7 @@ export default function MemberShowcase() {
             >
               {oem.img?.url && (
                 <img
-                  src={`${API}${oem.img.url}`}
+                  src={formatImageUrl(oem.img.url)}
                   alt={oem.heading}
                   className="w-full h-[160px] object-cover"
                 />

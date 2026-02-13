@@ -42,7 +42,7 @@ export default function CircularsPage() {
         
         setData({
           badge: d.badge,
-          badge_img: d.badge_img?.url,
+          badge_img: formatImageUrl(d.badge_img?.url),
           title: d.title,
           circulars: formattedCirculars,
         });
@@ -109,34 +109,42 @@ export default function CircularsPage() {
 
         {/* Circular List */}
         <div className="space-y-4 max-w-7xl mx-auto mb-16 px-4">
-          {filteredCirculars.map((item) => (
-            <div
-              key={item.id}
-              className="flex flex-col md:flex-row md:justify-between md:items-center gap-4 bg-[#ffffff] border-[0.76px] border-[#E2E8F0] shadow-sm rounded-lg p-4 md:px-6 md:py-4"
-            >
-              <div className="flex items-start md:items-center gap-3">
-                <div className="bg-linear-to-br from-[#FB2C36] to-[#E7000B] text-[#ffffff] p-2 rounded-lg flex-shrink-0">
-                  <FileText size={18} />
-                </div>
-                <div className="flex-1">
-                  <p className="font-bold text-[#0B3C5D] mb-2">{item.heading}</p>
-                  <p className="text-sm text-[#62748E] flex items-center gap-2">
-                    <Calendar size={16} /> 
-                    {new Date(item.date).toLocaleDateString()}
-                  </p>
-                </div>
-              </div>
-
-              <a 
-                href={item.button_url} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-[#1F7A4D] flex gap-1 text-sm font-medium hover:underline self-start md:self-center"
+          {filteredCirculars.length > 0 ? (
+            filteredCirculars.map((item) => (
+              <div
+                key={item.id}
+                className="flex flex-col md:flex-row md:justify-between md:items-center gap-4 bg-[#ffffff] border-[0.76px] border-[#E2E8F0] shadow-sm rounded-lg p-4 md:px-6 md:py-4"
               >
-                View PDF <ArrowRight size={18} />
-              </a>
+                <div className="flex items-start md:items-center gap-3">
+                  <div className="bg-linear-to-br from-[#FB2C36] to-[#E7000B] text-[#ffffff] p-2 rounded-lg flex-shrink-0">
+                    <FileText size={18} />
+                  </div>
+                  <div className="flex-1">
+                    <p className="font-bold text-[#0B3C5D] mb-2">{item.heading}</p>
+                    <p className="text-sm text-[#62748E] flex items-center gap-2">
+                      <Calendar size={16} /> 
+                      {new Date(item.date).toLocaleDateString()}
+                    </p>
+                  </div>
+                </div>
+
+                <a 
+                  href={item.button_url} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-[#1F7A4D] flex gap-1 text-sm font-medium hover:underline self-start md:self-center"
+                >
+                  View PDF <ArrowRight size={18} />
+                </a>
+              </div>
+            ))
+          ) : (
+            <div className="text-center py-12">
+              <FileText size={48} className="mx-auto text-gray-400 mb-4" />
+              <p className="text-gray-500 text-lg">No circulars available at the moment.</p>
+              <p className="text-gray-400 text-sm mt-2">Please check back later for updates.</p>
             </div>
-          ))}
+          )}
         </div>
       {/* </section> */}
     </InnerPageLayout>
