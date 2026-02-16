@@ -70,7 +70,7 @@ export default function AboutAssociationSection() {
         {/* LEFT CONTENT */}
         <div className="order-2 lg:order-1 text-center lg:text-left">
           {/* Badge */}
-          <span className="inline-flex items-center gap-2 bg-[#0B6B3A14] text-[#0B6B3A] px-3 md:px-4 py-2 rounded-md text-xs md:text-sm font-medium mb-4 md:mb-5">
+          <span className="inline-flex items-center gap-2 bg-[#1F7A4D0F] border-[0.86px] border-[#1F7A4D0F] text-[#0B6B3A] px-3 md:px-4 py-2 rounded-md text-xs md:text-sm font-medium mb-4 md:mb-5">
             {data.badge_img && data.badge_img !== '' && (
               <img 
                 src={data.badge_img} 
@@ -136,27 +136,23 @@ export default function AboutAssociationSection() {
           {/* Button */}
           <Link
             href="/about"
-            className="inline-flex items-center gap-2 bg-[#0B6B3A] text-white px-4 md:px-6 py-2.5 md:py-3 rounded-lg font-medium hover:opacity-90 transition text-sm md:text-base"
+            className="inline-flex items-center gap-2 bg-[#0B6B3A] text-white px-4 md:px-6 py-2.5 md:py-3 rounded-lg font-bold hover:opacity-90 transition text-sm md:text-base"
           >
-            {data.button} <ArrowUpRight size={16} className="md:w-[18px] md:h-[18px]" />
+            {data.button} <ArrowUpRight size={18} strokeWidth={3} />
           </Link>
         </div>
 
         {/* RIGHT IMAGE */}
         <div className="relative order-1 lg:order-2">
-          <div className="absolute -top-4 -right-4 md:-top-6 md:-right-6 w-full h-full bg-[#0B6B3A1A] rounded-2xl rotate-3 max-w-[300px] max-h-[300px] md:max-w-[400px] md:max-h-[400px] lg:max-w-none lg:max-h-none"></div>
-
           {data.img && (
-            <img
-              src={data.img}
-              alt="Association"
-              className="relative rounded-2xl shadow-lg object-cover w-full h-[250px] md:h-[350px] lg:h-auto"
-              onError={(e) => {
-                console.log('Image failed to load:', data.img);
-                e.currentTarget.style.display = 'none';
-              }}
-              onLoad={() => console.log('Image loaded successfully:', data.img)}
-            />
+            <>
+              <div className="absolute -top-4 -right-4 md:-top-6 md:-right-6 w-full h-full rounded-2xl -z-10"></div>
+              <img
+                src={data.img}
+                alt="Association"
+                className="relative rounded-2xl w-full "
+              />
+            </>
           )}
         </div>
       </div>

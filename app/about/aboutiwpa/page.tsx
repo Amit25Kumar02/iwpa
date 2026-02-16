@@ -127,22 +127,8 @@ export default function AboutIWPA() {
                                 </button>
                             </div>
 
-                            {/* Content based on active tab */}
-                            {activeTab === 'vision' && (
-                                <p className="text-[#334155] text-sm md:text-base lg:text-[17px] leading-relaxed mb-8 md:mb-10 mt-6">
-                                    <span className="font-semibold text-[#0F172A]">Our vision:</span>{" "}
-                                    {data.vision}
-                                </p>
-                            )}
-
-                            {activeTab === 'mission' && (
-                                <p className="text-[#334155] text-sm md:text-base lg:text-[17px] leading-relaxed mb-8 md:mb-10 mt-6">
-                                    <span className="font-semibold text-[#0F172A]">Our Mission:</span>{" "}
-                                    {data.mission}
-                                </p>
-                            )}
-
-                            {activeTab === 'why' && (
+                            {/* Content - Show Vision and Mission together, or Why Choose separately */}
+                            {activeTab === 'why' ? (
                                 <div className="text-[#334155] text-sm md:text-base lg:text-[17px] leading-relaxed mb-8 md:mb-10 mt-6">
                                     <span className="font-semibold text-[#0F172A] block mb-3">Why Choose Us:</span>
                                     <ul className="space-y-2">
@@ -153,6 +139,17 @@ export default function AboutIWPA() {
                                             </li>
                                         ))}
                                     </ul>
+                                </div>
+                            ) : (
+                                <div className="space-y-4 mt-6 mb-8 md:mb-10">
+                                    <p className="text-[#334155] text-sm md:text-base lg:text-[17px] leading-relaxed">
+                                        <span className="font-semibold text-[#0F172A]">Our vision:</span>{" "}
+                                        {data.vision}
+                                    </p>
+                                    <p className="text-[#334155] text-sm md:text-base lg:text-[17px] leading-relaxed">
+                                        <span className="font-semibold text-[#0F172A]">Our Mission:</span>{" "}
+                                        {data.mission}
+                                    </p>
                                 </div>
                             )}
 

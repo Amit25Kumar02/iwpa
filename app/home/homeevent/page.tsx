@@ -4,7 +4,7 @@ import axios from "axios";
 import Image from "next/image";
 import { formatImageUrl } from "@/lib/utils";
 
-export default function ConferencesPage() {
+export default function Homeevent() {
   const [header, setHeader] = useState<any>(null);
   const [conferences, setConferences] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
@@ -15,14 +15,14 @@ export default function ConferencesPage() {
         const API = process.env.NEXT_PUBLIC_STRAPI_URL;
 
         const res = await axios.get(
-          `${API}/api/eventconference?populate[0]=badge_img&populate[1]=eventconfcard&populate[2]=eventconfcard.img`
+          `${API}/api/homeevent?populate[0]=badge_img&populate[1]=homeeventcard&populate[2]=homeeventcard.img`
         );
 
         console.log('Conference header data:', res.data.data);
         console.log('Badge img:', res.data.data?.badge_img);
         
         setHeader(res.data.data);
-        setConferences(res.data.data?.eventconfcard || []);
+        setConferences(res.data.data?.homeeventcard || []);
       } catch (err) {
         console.error("Conference fetch failed:", err);
       } finally {
@@ -38,41 +38,42 @@ export default function ConferencesPage() {
   }
 
   return (
-    <section className="py-16 bg-white relative overflow-hidden">
+    <section className="py-16 bg-[#ffffff] relative overflow-hidden">
       {/* Top Left Vector */}
-            <Image
-              src="/vector/elements3.png.png"
-              alt=""
-              width={256}
-              height={256}
-              className="absolute top-0 left-0 w-52 md:w-74 lg:w-80 "
-            />
-      
-            {/* Bottom Left Vector */}
-            <Image
-              src="/vector/elements4.png.png"
-              alt=""
-              width={256}
-              height={256}
-              className="absolute bottom-0 left-12 w-29 md:w-29 lg:w-27.5 "
-            />
-      
-            {/* Bottom Right Vector */}
-            <Image
-              src="/vector/elements4.png.png"
-              alt=""
-              width={256}
-              height={256}
-              className="absolute bottom-0 right-10 w-29 md:w-29 lg:w-27.5 "
-            />
-      <div className="max-w-7xl mx-auto px-4">
+      <Image
+        src="/vector/elements3.png.png"
+        alt=""
+        width={256}
+        height={256}
+        className="absolute top-0 left-0 w-52 md:w-74 lg:w-80 "
+      />
+
+      {/* Bottom Left Vector */}
+      <Image
+        src="/vector/elements4.png.png"
+        alt=""
+        width={256}
+        height={256}
+        className="absolute bottom-0 left-12 w-29 md:w-29 lg:w-27.5 "
+      />
+
+      {/* Bottom Right Vector */}
+      <Image
+        src="/vector/elements4.png.png"
+        alt=""
+        width={256}
+        height={256}
+        className="absolute bottom-0 right-10 w-29 md:w-29 lg:w-27.5 "
+      />
+
+      <div className="max-w-7xl mx-auto px-4 relative z-10">
 
         {/* Header */}
         <div className="text-center mb-12">
           <span className="inline-flex items-center gap-2 text-[#1F7A4D] bg-[#1F7A4D0F] px-4 py-2 rounded text-sm">
-            {header?.badge_img?.[0]?.url && (
+            {header?.badge_img?.url && (
               <img
-                src={formatImageUrl(header.badge_img[0].url)}
+                src={formatImageUrl(header.badge_img.url)}
                 alt="badge"
                 className="w-4 h-4"
               />

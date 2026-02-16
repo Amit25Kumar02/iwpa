@@ -66,13 +66,14 @@ export default function EventsPage() {
 
   return (
     <InnerPageLayout title="Events" breadcrumbs={[{ label: "Events" }]}>
+      <section className="bg-[#F6F8FA] py-10 md:py-20">
 
       {/* 🔹 Dynamic Section Header */}
       <div className="text-center mb-8 md:mb-10 px-4">
         <span className="inline-flex items-center gap-2 text-[#1F7A4D] bg-[#1F7A4D0F] px-3 md:px-4 py-2 border border-[#1F7A4D0F] rounded text-xs md:text-sm">
           {header?.badge_img?.url && (
             <img
-              src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${header.badge_img.url}`}
+              src={header.badge_img.url}
               alt="badge"
               className="w-3 h-3 md:w-4 md:h-4"
             />
@@ -90,27 +91,28 @@ export default function EventsPage() {
         {meetings.length > 0 && meetings.map((event: any) => (
           <div
             key={event.id}
-            className="flex flex-col sm:flex-row sm:justify-between sm:items-center bg-white border border-[#E2E8F0] shadow-sm rounded-lg px-4 md:px-6 py-4 gap-3 sm:gap-0"
+            className="flex flex-col sm:flex-row sm:justify-between sm:items-center bg-[#FFFFFF] border border-[#E2E8F0] shadow-sm rounded-lg px-4 md:px-6 py-4 gap-3 sm:gap-0"
           >
             <div>
-              <p className="font-bold text-[#0B3C5D] text-sm md:text-base">
+              <p className="font-bold text-[#0B3C5D] text-lg md:text-base">
                 {event.title}
               </p>
-              <p className="text-xs text-gray-500 mt-1">
-                <Calendar className="inline mr-1 w-3 h-3" />
+              <p className="text-xs text-gray-500 mt-1 flex items-center gap-1">
+                <Calendar className=" w-4 h-4" />
                 {new Date(event.date).toDateString()}
               </p>
             </div>
 
             <a
               href={event.button_url || '#'}
-              className="text-[#1F7A4D] font-semibold text-sm self-start sm:self-auto"
+              className="text-[#1F7A4D]  text-lg self-start sm:self-auto flex items-center gap-1 "
             >
-              {event.button}<ArrowRight className="inline ml-1 w-4 h-4" />
+              {event.button}<ArrowRight className=" w-4 h-4" />
             </a>
           </div>
         ))}
       </div>
+      </section>
 
      <ConferencesPage />
 

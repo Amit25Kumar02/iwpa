@@ -67,7 +67,7 @@ export default function IndustryHeroSection() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 md:ml-12 lg:ml-20 text-[#ffffff]">
         {/* Badge */}
         {data.badge && (
-          <span className="inline-flex items-center gap-2 bg-[#FFFFFF33] backdrop-blur px-3 py-1 md:px-4 md:py-2 rounded-sm text-xs md:text-sm font-medium mb-4 md:mb-6">
+          <span className="inline-flex items-center gap-2 bg-[#FFFFFF33] border-[0.86px] border-[#FFFFFF1A] backdrop-blur px-3 py-1 md:px-4 md:py-2 rounded-sm text-xs md:text-sm font-medium mb-4 md:mb-6">
             {data.badge_img && (
               <img
                 src={data.badge_img}
@@ -105,7 +105,7 @@ export default function IndustryHeroSection() {
           {/* Play Button */}
           {data.video && (
             <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-[#1F7A4D] flex items-center justify-center">
-              <Play className="text-[#ffffff]" size={20} />
+              <Play className="text-[#ffffff] fill-[#ffffff]" size={20} />
             </div>
           )}
 
@@ -113,7 +113,7 @@ export default function IndustryHeroSection() {
           {data.button && (
             <Link
               href={data.button_link}
-              className="flex items-center gap-2 text-[#ffffff] font-medium hover:underline text-sm md:text-base"
+              className="flex items-center text-[#ffffff] font-bold hover:underline text-sm md:text-base"
             >
               {data.button}
             </Link>

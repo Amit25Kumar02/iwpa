@@ -89,7 +89,7 @@ export default function PublicationsSection() {
                 <img
                   src={post.img}
                   alt={post.heading || 'Publication'}
-                  className="w-full h-48 object-cover"
+                  className="w-full h-48 "
                 />
               )}
               
@@ -105,16 +105,16 @@ export default function PublicationsSection() {
                   </div>
                 )}
 
-                <h3 className="font-semibold text-[#0F172A] mb-4">
+                <h3 className="font-bold text-[#0F172A] mb-4">
                   {post.heading || 'Publication Title'}
                 </h3>
 
                 {post.button && (
                   <Link
                     href={post.button_url || "#"}
-                    className="text-[#0B6B3A] font-medium text-sm"
+                    className="text-[#0B6B3A] font-bold flex gap-1 text-sm"
                   >
-                    {post.button}<ArrowUpRight className="inline ml-1 w-4 h-4" />
+                    {post.button}<ArrowUpRight size={18} strokeWidth={3} />
                   </Link>
                 )}
               </div>
@@ -131,9 +131,9 @@ export default function PublicationsSection() {
         <div className="mt-12">
           <Link
             href="/publications"
-            className="inline-flex items-center gap-2 bg-[#0B6B3A] text-white px-6 py-3 rounded-lg font-medium hover:opacity-90 transition"
+            className="inline-flex items-center gap-2 bg-[#0B6B3A] text-white px-6 py-3 rounded-lg font-bold hover:opacity-90 transition"
           >
-            View All Updates<ArrowUpRight className="inline w-4 h-4" />
+            View All Updates <ArrowUpRight size={18} strokeWidth={3} />
           </Link>
         </div>
       </div>

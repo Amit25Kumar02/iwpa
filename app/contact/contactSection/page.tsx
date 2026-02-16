@@ -74,7 +74,7 @@ export default function ContactSection() {
   if (!data) return null;
 
   return (
-    <section className="bg-[#F8FAFC] py-8 md:py-12">
+    <section className="bg-[#FFFFFF] py-8 md:py-12">
       <div className="max-w-7xl mx-auto px-4 md:px-6">
         <div className="text-center mb-8 md:mb-12">
           <span className="inline-flex items-center gap-2 bg-[#1F7A4D0F] border-[0.81px] border-[#1F7A4D0F] text-[#1F7A4D] px-3 md:px-4 py-2 rounded-md text-xs md:text-sm font-medium mb-4">
@@ -106,7 +106,7 @@ export default function ContactSection() {
           {/* Form */}
           <form
             onSubmit={handleSubmit}
-            className="bg-white p-4 md:p-6 lg:p-8 rounded-2xl space-y-4 order-1 lg:order-2"
+            className="bg-[#FFFFFF] p-4 md:p-6 lg:p-8 rounded-2xl space-y-4 order-1 lg:order-2"
           >
             <div className="grid md:grid-cols-2 gap-4">
               <input
@@ -179,7 +179,7 @@ export default function ContactSection() {
               ) : (
                 <>
                   Submit Message
-                  <ArrowUpRight size={18} />
+                  <ArrowUpRight size={18} strokeWidth={3} />
                 </>
               )}
             </button>

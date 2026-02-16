@@ -47,7 +47,7 @@ export default function OurValueSection() {
         return <div className="text-center py-20 text-gray-500">Loading...</div>;
 
     return (
-        <section className="mt-8 md:mt-12 py-8 md:py-12">
+        <section className="mt-8 md:mt-12 py-8 md:py-12 bg-[#F6F8FA]">
             <div className="max-w-7xl mx-auto px-4 md:px-6 text-center">
                 {/* Badge */}
                 <span className="inline-flex items-center gap-2 bg-[#0B6B3A14] text-[#0B6B3A] px-3 md:px-4 py-2 rounded-md text-xs md:text-sm font-medium mb-4">
@@ -69,11 +69,11 @@ export default function OurValueSection() {
                 {/* Grid */}
                 <div className="grid lg:grid-cols-2 gap-6 md:gap-8 lg:gap-10 items-center text-left">
                     {/* Left Content Card */}
-                    <div className="bg-white px-4 md:px-6 lg:px-8 py-4 md:py-6 rounded-2xl shadow-sm order-2 lg:order-1">
-                        <h3 className="text-xl md:text-2xl lg:text-3xl font-medium text-[#475569] mb-3 md:mb-4">
+                    <div className="bg-[#ffffff] px-4 md:px-6 lg:px-8 py-4 md:py-6 rounded-2xl shadow-sm order-2 lg:order-1">
+                        <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#001233] mb-3 md:mb-4">
                             {data.heading}
                         </h3>
-                        <div className="text-[#475569] text-sm md:text-base leading-relaxed space-y-3 md:space-y-4">
+                        <div className="text-[#676B74] text-lg md:text-base leading-relaxed space-y-3 md:space-y-4">
                             {data.description && data.description.split('\n').map((paragraph, index) => (
                                 <p key={index}>{paragraph}</p>
                             ))}

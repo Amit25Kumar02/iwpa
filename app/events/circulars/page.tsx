@@ -66,11 +66,12 @@ export default function CircularsPage() {
 
   return (
     <InnerPageLayout title="Circulars" breadcrumbs={[
+      {label: "Event"},
       { label: "Circulars" },
     
     ]}
     >
-      {/* <section className="bg-[#F6F8FA]"> */}
+      <section className="bg-[#F6F8FA] py-10 md:py-20">
         {/* Tag */}
         <div className="text-center mb-10">
           {data.badge && (
@@ -98,7 +99,7 @@ export default function CircularsPage() {
             <button
               key={year}
               onClick={() => setSelectedYear(year)}
-              className={`px-3 md:px-4 py-2 rounded-md transition text-sm font-semibold cursor-pointer ${
+              className={`px-3 md:px-4 py-2 rounded-md transition text-lg font-semibold cursor-pointer ${
                 selectedYear === year ? "bg-[#1F7A4D] text-[#ffffff]" : "bg-[#F6F8FA] hover:bg-[#1F7A4D] hover:text-[#ffffff]"
               }`}
             >
@@ -116,14 +117,14 @@ export default function CircularsPage() {
                 className="flex flex-col md:flex-row md:justify-between md:items-center gap-4 bg-[#ffffff] border-[0.76px] border-[#E2E8F0] shadow-sm rounded-lg p-4 md:px-6 md:py-4"
               >
                 <div className="flex items-start md:items-center gap-3">
-                  <div className="bg-linear-to-br from-[#FB2C36] to-[#E7000B] text-[#ffffff] p-2 rounded-lg flex-shrink-0">
-                    <FileText size={18} />
+                  <div className="bg-linear-to-br from-[#FB2C36] to-[#E7000B] md:h-15 md:w-15 text-[#ffffff] p-3.5 rounded-lg ">
+                    <FileText size={30} className="" />
                   </div>
                   <div className="flex-1">
-                    <p className="font-bold text-[#0B3C5D] mb-2">{item.heading}</p>
+                    <p className="font-bold text-[15px] text-[#0B3C5D] mb-2">{item.heading}</p>
                     <p className="text-sm text-[#62748E] flex items-center gap-2">
-                      <Calendar size={16} /> 
-                      {new Date(item.date).toLocaleDateString()}
+                      <Calendar size={16} /> Published:
+                      {new Date(item.date).toDateString()}
                     </p>
                   </div>
                 </div>
@@ -132,7 +133,7 @@ export default function CircularsPage() {
                   href={item.button_url} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="text-[#1F7A4D] flex gap-1 text-sm font-medium hover:underline self-start md:self-center"
+                  className="text-[#1F7A4D] flex gap-1 text-[15px] hover:underline self-start md:self-center"
                 >
                   View PDF <ArrowRight size={18} />
                 </a>
@@ -146,7 +147,7 @@ export default function CircularsPage() {
             </div>
           )}
         </div>
-      {/* </section> */}
+      </section>
     </InnerPageLayout>
   );
 }

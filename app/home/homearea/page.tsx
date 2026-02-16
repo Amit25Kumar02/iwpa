@@ -31,7 +31,7 @@ export default function KeyFocusAreasSection() {
     const fetchAreas = async () => {
       try {
         const res = await axios.get(
-          `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/homearea?populate=*`
+          `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/homearea?populate[0]=badge_img&populate[1]=homeareacard&populate[2]=homeareacard.img`
         );
 
         const d = res.data.data;
@@ -83,17 +83,17 @@ export default function KeyFocusAreasSection() {
             <div
               key={area.id}
               onClick={() => setActiveCard(index)}
-              className={`rounded-2xl p-8 transition-all duration-300  cursor-pointer
+              className={`rounded-2xl p-8 transition-all duration-300 cursor-pointer
                 ${
                   activeCard === index
                     ? "bg-[#1F7A4D] text-[#ffffff] shadow-xl scale-105"
-                    : "bg-[#ffffff] text-[#001233]  hover:shadow-md"
+                    : "bg-[#ffffff] text-[#001233] hover:shadow-md hover:scale-105 scale-95"
                 }`}
             >
               {/* Icon */}
               <div
                 className={`w-14 h-14 mx-auto mb-5 flex items-center justify-center rounded-lg ${
-                  activeCard === index ? "bg-white/20" : "bg-[#E2F5EA]"
+                  activeCard === index ? "bg-[#E6FBED]" : "bg-[#E2F5EA]"
                 }`}
               >
                 {area.img ? (
@@ -129,7 +129,7 @@ export default function KeyFocusAreasSection() {
                   href={area.button_url || "#"}
                   className="inline-flex items-center gap-2 font-bold text-[#ffffff]"
                 >
-                  {area.button} <ArrowUpRight size={18} />
+                  {area.button} <ArrowUpRight size={18} strokeWidth={3} />
                 </Link>
               )}
             </div>

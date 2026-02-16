@@ -1,4 +1,5 @@
-import { Facebook, Linkedin, Instagram, Youtube, Mail, Phone, MapPin } from "lucide-react";
+import { Facebook, Linkedin, Instagram, Mail, Phone, MapPin } from "lucide-react";
+import {AiFillYoutube} from "react-icons/ai";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -36,17 +37,17 @@ export default function Footer() {
           </p>
 
           <div className="flex gap-3">
-            <div className="bg-white/10 p-2 rounded-full hover:bg-white/20 cursor-pointer">
-              <Facebook size={16} />
+            <div className="bg-[#ffffff] p-2 rounded-full  cursor-pointer">
+              <Facebook size={16} color="#0B3C5D" fill="#0B3C5D" />
             </div>
-            <div className="bg-white/10 p-2 rounded-full hover:bg-white/20 cursor-pointer">
-              <Linkedin size={16} />
+            <div className="bg-[#ffffff] p-2 rounded-full  cursor-pointer">
+              <Linkedin size={16} color="#0B3C5D" fill="#0B3C5D" />
             </div>
-            <div className="bg-white/10 p-2 rounded-full hover:bg-white/20 cursor-pointer">
-              <Instagram size={16} />
+            <div className="bg-[#ffffff] p-2 rounded-full cursor-pointer">
+              <Instagram size={16} color="#0B3C5D"  />
             </div>
-            <div className="bg-white/10 p-2 rounded-full hover:bg-white/20 cursor-pointer">
-              <Youtube size={16} />
+            <div className="bg-[#ffffff] p-2 rounded-full cursor-pointer">
+              <AiFillYoutube size={16} color="#0B3C5D"  />
             </div>
           </div>
         </div>

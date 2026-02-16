@@ -50,40 +50,40 @@ export default function JoinIwpaCTA() {
   if (!data) return null;
 
   return (
-    <section className="py-12 md:py-16 lg:py-20 px-4 md:px-6">
+    <section className="py-8 md:py-16 lg:py-20 px-4 md:px-6">
       <div
-        className="max-w-7xl mx-auto min-h-[400px] md:h-88 rounded-2xl overflow-hidden relative bg-cover bg-center"
+        className="max-w-7xl mx-auto min-h-[350px] md:max-h-[351px] rounded-2xl overflow-hidden relative bg-cover bg-center"
         style={{
           backgroundImage: `url(${data.bg_image})`,
         }}
       >
         {/* Overlay */}
-        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0 bg-linear-to-br from-[#00000000] to-[#000000]" />
 
-        <div className="relative z-10 grid md:grid-cols-2 items-center py-8 md:py-6 px-6 md:px-10 gap-6 md:gap-8 h-full">
+        <div className="relative z-10 grid md:grid-cols-2 items-center px-6 py-10 md:px-10 md:py-0 gap-6 md:gap-8 h-full">
 
           {/* Left Content */}
           <div className="text-white max-w-xl text-center md:text-left">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 leading-tight">
+            <h2 className="text-xl md:text-3xl lg:text-4xl font-bold mb-3 md:mb-4 leading-tight">
               {data.heading}
             </h2>
 
-            <p className="text-sm md:text-base text-white/90 mb-6">
+            <p className="text-xs md:text-base text-white/90 mb-4 md:mb-6">
               {data.description}
             </p>
 
-            <div className="flex flex-col sm:flex-row bg-[#FFFFFF] p-2 rounded-lg gap-2 md:gap-3 max-w-md mx-auto md:mx-0">
+            <div className="flex flex-col md:flex-row  bg-[#FFFFFF] p-2 rounded-lg gap-2 md:gap-3 max-w-md mx-auto md:mx-0">
               <input
                 type="email"
                 placeholder={data.placeholder}
-                className="flex-1 px-3 md:px-4 py-2.5 md:py-3 rounded-lg text-sm text-[#0F172A] outline-none"
+                className="flex-1 px-3 md:px-4 py-2 md:py-3 rounded-lg text-xs md:text-sm text-[#0F172A] outline-none"
               />
 
               <Link
                 href={data.button_url || "#"}
-                className="inline-flex items-center justify-center gap-2 bg-[#1F7A4D] text-white px-4 md:px-6 py-2.5 md:py-3 rounded-lg text-sm font-semibold hover:opacity-90 transition whitespace-nowrap"
+                className="flex items-center justify-center gap-2 bg-[#1F7A4D] text-white px-4 md:px-6 py-2 md:py-3 rounded-lg text-xs md:text-sm font-bold hover:opacity-90 transition whitespace-nowrap"
               >
-                {data.button} <ArrowUpRight size={16} className="md:w-[18px] md:h-[18px]" />
+                {data.button} <ArrowUpRight size={16} strokeWidth={3} className="md:w-[18px] md:h-[18px]" />
               </Link>
             </div>
           </div>
@@ -94,7 +94,7 @@ export default function JoinIwpaCTA() {
               <img
                 src={data.side_image}
                 alt="Join IWPA"
-                className="max-h-[280px] lg:max-h-[330px] -mb-8 lg:-mb-18"
+                className="max-h-[280px] lg:max-h-[350px]"
               />
             </div>
           )}

@@ -45,7 +45,7 @@ export default function InnerPageHero({ title, breadcrumbs = [] }: Props) {
         />
       )}
 
-      <div className="absolute inset-0 bg-[#0b2c4d]/70" />
+      <div className="absolute inset-0 bg-gradient-to-br from-[#001233] to-[#00123300]" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 h-full flex flex-col justify-center">
         <h1 className="text-white text-2xl md:text-3xl lg:text-4xl font-bold mb-2">
@@ -57,13 +57,13 @@ export default function InnerPageHero({ title, breadcrumbs = [] }: Props) {
 
           {breadcrumbs.map((item, i) => (
             <span key={i} className="flex gap-2">
-              <span>&gt;</span>
+              <span className="font-bold">&gt;</span>
               {item.href ? (
                 <Link href={item.href} className="hover:text-white transition-colors">
                   {item.label}
                 </Link>
               ) : (
-                <span className="text-white font-medium">{item.label}</span>
+                <span className="text-white font-bold">{item.label}</span>
               )}
             </span>
           ))}

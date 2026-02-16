@@ -41,13 +41,13 @@ export default function CtaJoinSection() {
     return <div className="text-center py-16 text-gray-500">Loading...</div>;
 
   return (
-    <section className="py-8 md:py-12 lg:py-14 bg-[#F8FAFC]">
-      <div className="max-w-7xl mx-auto px-4 md:px-6">
-        <div className="relative rounded-2xl overflow-hidden">
+    <section className="py-8 md:py-12 lg:py-14 bg-[#FFFFFF]">
+      <div className="max-w-7xl mx-auto px-4 md:px-6 md:h-88">
+        <div className="relative rounded-2xl md:h-87 overflow-hidden">
           {/* Background Image */}
           {data.img && (
             <div
-              className="absolute inset-0 bg-cover bg-center"
+              className="absolute inset-0 bg-cover  bg-center"
               style={{ backgroundImage: `url(${data.img})` }}
             />
           )}

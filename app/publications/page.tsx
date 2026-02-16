@@ -33,7 +33,7 @@ export default function PublicationsPage() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get(`${API}/api/publication?populate=*`);
+        const res = await axios.get(`${API}/api/publication?populate[0]=badge_img&populate[1]=publicationpagecard&populate[2]=publicationpagecard.img&populate[3]=publicationpagecard&populate[4]=publicationpagecard.img`);
         const d = res.data.data;
         
         setHeader({
@@ -45,16 +45,13 @@ export default function PublicationsPage() {
         // Extract publications from publicationpagecard array
         const publicationsArray = d.publicationpagecard || [];
         
-        const formatted = publicationsArray.map((item: any, index: number) => {
-          const dateObj = item.date ? new Date(item.date) : new Date();
-          return {
-            id: item.id,
-            date: item.date ? dateObj.toLocaleDateString() : 'No date',
-            year: item.date ? dateObj.getFullYear() : new Date().getFullYear(),
-            img: formatImageUrl(item.img?.url),
-            title: item.title || `Publication ${index + 1}`,
-          };
-        });
+        const formatted = publicationsArray.map((item: any, index: number) => ({
+          id: item.id,
+          date: 'No date',
+          year: new Date().getFullYear(),
+          img: formatImageUrl(item.img?.url),
+          title: `Publication ${index + 1}`,
+        }));
         
         setPublications(formatted);
         setSelectedYear(formatted[0]?.year || null);
@@ -81,6 +78,7 @@ export default function PublicationsPage() {
         <div className="text-center py-20">Loading...</div>
       ) : (
         <>
+        <section className="py-10 md:py-20 bg-[#F8FAFC]">
           <div className="text-center mb-12 md:px-20">
         {header?.badge && (
           <span className="inline-flex items-center gap-2 bg-[#1F7A4D0F] border-[0.86px] border-[#1F7A4D33] text-[#1F7A4D] px-4 py-2 rounded-md text-sm font-medium mb-4">
@@ -103,12 +101,12 @@ export default function PublicationsPage() {
       </div>
 
       {/* Year Filters */}
-      <div className="flex flex-wrap justify-center gap-3 mb-10 md:px-20">
+      <div className="flex flex-wrap justify-center gap-3 mx-auto w-fit mb-10 md:px-20 bg-[#FFFFFF] shadow-sm px-4 py-3 rounded-lg">
         {years.map((year) => (
           <button
             key={year}
             onClick={() => setSelectedYear(year)}
-            className={`px-4 py-2 rounded-md text-sm font-medium ${
+            className={`px-4 py-2 rounded-md text-lg font-semibold ${
               selectedYear === year
                 ? "bg-[#1F7A4D] text-[#ffffff]"
                 : "bg-[#F6F8FA] text-[#001233] hover:bg-[#e2e8f0]"
@@ -124,24 +122,24 @@ export default function PublicationsPage() {
         {filtered.length > 0 ? filtered.map((publication) => (
           <div
             key={publication.id}
-            className="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-200 p-4"
+            className="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-200 "
           >
             {publication.img && publication.img !== '' ? (
               <img
                 src={publication.img}
                 alt={`Publication ${publication.year}`}
-                className="w-full h-48 object-cover rounded-lg mb-3"
+                className="w-full h-full  rounded-lg mb-3"
               />
             ) : (
               <div className="w-full h-48 bg-gray-100 rounded-lg mb-3 flex items-center justify-center">
                 <span className="text-gray-400 text-sm">No Image</span>
               </div>
             )}
-            <h3 className="font-semibold text-gray-800 mb-2">{publication.title}</h3>
+            {/* <h3 className="font-semibold text-gray-800 mb-2">{publication.title}</h3>
             <p className="text-sm text-gray-600 flex items-center gap-1">
               <Calendar size={14} />
               {publication.date}
-            </p>
+            </p> */}
           </div>
         )) : (
           <div className="col-span-4 text-center py-12">
@@ -150,6 +148,7 @@ export default function PublicationsPage() {
           </div>
         )}
       </div>
+      </section>
         </>
       )}
     </InnerPageLayout>

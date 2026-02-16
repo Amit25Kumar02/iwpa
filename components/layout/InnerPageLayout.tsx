@@ -21,7 +21,7 @@ export default function InnerPageLayout({
   return (
     <>
       <InnerPageHero title={title} breadcrumbs={breadcrumbs} />
-      <main className="mx-auto px-4 md:px-6 py-8 md:py-12 bg-[#F6F8FA]">{children}</main>
+      <main >{children}</main>
     </>
   );
 }

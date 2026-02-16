@@ -58,7 +58,7 @@ export default function IwpaPresenceSection() {
   const activeOffice = data.contactcard[activeIndex];
 
   return (
-    <section className="pt-10 md:pt-20 bg-[#F8FAFC]">
+    <section className="py-10 md:py-20 bg-[#F6F8FA]">
       <div className="max-w-7xl mx-auto px-4 md:px-6">
         {/* Header */}
         <div className="text-center mb-8 md:mb-10">
@@ -81,7 +81,7 @@ export default function IwpaPresenceSection() {
               <button
                 key={index}
                 onClick={() => setActiveIndex(index)}
-                className={`pt-2 pb-1 px-2 border-t-3 transition text-center cursor-pointer ${
+                className={`pb-2 px-2 border-b-2 transition text-center cursor-pointer ${
                   activeIndex === index
                     ? "border-[#1F7A4D] text-[#1F7A4D]"
                     : "border-transparent text-[#767676] hover:text-[#0B6B3A]"
@@ -100,9 +100,9 @@ export default function IwpaPresenceSection() {
 
         {/* Active Office Content */}
         {activeOffice && (
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-10 items-start bg-[#FFFFFF] p-4 md:p-0">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-10 items-start bg-[#FFFFFF]  rounded-2xl">
             {/* Left Info Box */}
-            <div className="bg-[#F6F8FA] p-4 md:mt-10 md:p-8 lg:ml-8 rounded-2xl shadow-sm order-2 lg:order-1">
+            <div className="bg-[#F6F8FA] p-4 md:p-8 rounded-2xl shadow-sm md:my-auto md:ml-10 order-2 lg:order-1">
               <p className="mb-3 md:mb-4 text-sm md:text-base">
                 <strong>Address:</strong> {activeOffice.address}
               </p>
@@ -123,7 +123,7 @@ export default function IwpaPresenceSection() {
                 <img
                   src={activeOffice.img}
                   alt={activeOffice.tab_name}
-                  className="rounded-2xl shadow-md object-cover w-full h-[250px] md:h-[320px]"
+                  className="md:rounded-r-2xl rounded-2xl md:rounded-l-none shadow-md  w-full h-[250px] md:h-[320px]"
                 />
               </div>
             )}

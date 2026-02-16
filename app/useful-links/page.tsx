@@ -63,6 +63,7 @@ export default function UsefulLinksPage() {
       ) : !data || !data.link_category?.length ? (
         <div className="text-center py-20">No data available</div>
       ) : (
+        <section className="py-10 md:py-20 bg-[#F6F8FA]">
         <div className="max-w-6xl mx-auto px-4 md:px-6">
           {/* Header */}
           <div className="text-center mb-8 md:mb-12">
@@ -84,7 +85,7 @@ export default function UsefulLinksPage() {
               <button
                 key={i}
                 onClick={() => setActiveIndex(i)}
-                className={`relative px-4 md:px-6 py-6 md:py-9 rounded-xl text-sm font-semibold border-[1.52px] transition-all cursor-pointer ${
+                className={`relative px-4 md:px-6 py-8 md:py-12 rounded-xl text-sm font-semibold border-[2.5px] transition-all cursor-pointer ${
                   activeIndex === i
                     ? "border-[#1F7A4D] text-[#0B3C5D] shadow-sm"
                     : "border-[#E2E8F0] text-[#0B3C5D] hover:border-[#1F7A4D]"
@@ -100,7 +101,7 @@ export default function UsefulLinksPage() {
 
           {/* Active Panel */}
           {data.link_category[activeIndex] && (
-            <div className="border border-[#1F7A4D] rounded-2xl p-4 md:p-6 lg:p-8 bg-[#FFFFFF] shadow-sm">
+            <div className="border-[2.5px] border-[#1F7A4D] rounded-2xl p-4 md:p-6 lg:p-8 bg-[#FFFFFF] shadow-sm">
               <div className="flex justify-between items-center mb-4 md:mb-6">
                 <h3 className="text-base md:text-lg font-semibold text-[#0B3C5D]">
                   {data.link_category[activeIndex].tab_name}
@@ -123,7 +124,7 @@ export default function UsefulLinksPage() {
                     <a
                       href={link.button_url || "#"}
                       target="_blank"
-                      className="text-[#1F7A4D] text-sm font-semibold hover:underline flex items-center gap-1 w-fit"
+                      className="text-[#1F7A4D] text-sm hover:underline flex items-center gap-1 w-fit"
                     >
                       {link.button}<ArrowRight className="w-4 h-4" />
                     </a>
@@ -133,6 +134,7 @@ export default function UsefulLinksPage() {
             </div>
           )}
         </div>
+        </section>
       )}
     </InnerPageLayout>
   );
