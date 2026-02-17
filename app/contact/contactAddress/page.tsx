@@ -103,7 +103,7 @@ export default function IwpaPresenceSection() {
               {data.contactcard.map((office, index) => (
                 <button
                   key={index}
-                  ref={(el) => (tabRefs.current[index] = el)}
+                  ref={(el) => { tabRefs.current[index] = el; }}
                   onClick={() => setActiveIndex(index)}
                   className={`pb-4 transition whitespace-nowrap cursor-pointer
                     ${
