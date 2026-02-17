@@ -45,7 +45,7 @@ export default function Homeevent() {
         alt=""
         width={256}
         height={256}
-        className="absolute top-0 left-0 w-52 md:w-74 lg:w-80 "
+        className="absolute hidden md:block top-0 left-0 w-52 md:w-74 lg:w-80 "
       />
 
       {/* Bottom Left Vector */}
@@ -54,7 +54,7 @@ export default function Homeevent() {
         alt=""
         width={256}
         height={256}
-        className="absolute bottom-0 left-12 w-29 md:w-29 lg:w-27.5 "
+        className="absolute hidden md:block bottom-0 left-12 w-29 md:w-29 lg:w-27.5 "
       />
 
       {/* Bottom Right Vector */}
@@ -63,7 +63,7 @@ export default function Homeevent() {
         alt=""
         width={256}
         height={256}
-        className="absolute bottom-0 right-10 w-29 md:w-29 lg:w-27.5 "
+        className="absolute hidden md:block bottom-0 right-10 w-29 md:w-29 lg:w-27.5 "
       />
 
       <div className="max-w-7xl mx-auto px-4 relative z-10">

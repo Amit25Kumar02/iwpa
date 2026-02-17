@@ -49,9 +49,9 @@ export default function HomeAddPage() {
   if (loading) return <div className="w-full bg-[#1e7f4f] py-8"><div className="text-center text-white">Loading...</div></div>;
 
   return (
-    <div className="w-full md:h-14.5 bg-[#1e7f4f] py-4 md:py-0 relative z-50 flex items-center">
-      <div className="max-w-[1400px] mx-auto px-4 w-full">
-        <div className="flex flex-wrap items-center justify-center gap-6">
+    <div className="w-full md:h-14.5 bg-[#1e7f4f] py-4 md:py-0 relative z-50 flex items-center overflow-hidden">
+      <div className="flex animate-scroll">
+        <div className="flex items-center gap-6 px-6 whitespace-nowrap">
           {services.map((item) => (
             <div
               key={item.id}
@@ -65,12 +65,13 @@ export default function HomeAddPage() {
                 />
               )}
 
-              <h3 className="text-lg font-bold uppercase text-[#FFFFFF]">
+              <h3 className="text-[17px] font-bold uppercase text-[#FFFFFF]">
                 {item.title}
               </h3>
             </div>
           ))}
         </div>
+       
       </div>
     </div>
   );
