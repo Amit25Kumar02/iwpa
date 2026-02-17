@@ -114,7 +114,7 @@ export default function ContactSection() {
                 value={form.first_name}
                 onChange={handleChange}
                 placeholder="First Name"
-                className="border-[0.94px] border-[#007F5F1A] bg-[#F6F8FA] outline-none rounded-md px-3 md:px-4 py-2.5 md:py-3 text-sm md:text-base"
+                className="border-[0.94px] border-[#007F5F1A] bg-[#F6F8FA] text-[#676B74] outline-none rounded-md px-3 md:px-4 py-2.5 md:py-3 text-sm md:text-base"
                 required
               />
               <input
@@ -122,7 +122,7 @@ export default function ContactSection() {
                 value={form.last_name}
                 onChange={handleChange}
                 placeholder="Last Name"
-                className="border-[0.94px] border-[#007F5F1A] bg-[#F6F8FA] outline-none rounded-md px-3 md:px-4 py-2.5 md:py-3 text-sm md:text-base"
+                className="border-[0.94px] border-[#007F5F1A] bg-[#F6F8FA] text-[#676B74] outline-none rounded-md px-3 md:px-4 py-2.5 md:py-3 text-sm md:text-base"
                 required
               />
             </div>
@@ -134,7 +134,7 @@ export default function ContactSection() {
                 value={form.email}
                 onChange={handleChange}
                 placeholder="Email Address"
-                className="border-[0.94px] border-[#007F5F1A] bg-[#F6F8FA] outline-none rounded-md px-3 md:px-4 py-2.5 md:py-3 text-sm md:text-base"
+                className="border-[0.94px] border-[#007F5F1A] bg-[#F6F8FA] text-[#676B74] outline-none rounded-md px-3 md:px-4 py-2.5 md:py-3 text-sm md:text-base"
                 required
               />
               <input
@@ -142,7 +142,7 @@ export default function ContactSection() {
                 value={form.phone}
                 onChange={handleChange}
                 placeholder="Phone Number"
-                className="border-[0.94px] border-[#007F5F1A] bg-[#F6F8FA] outline-none rounded-md px-3 md:px-4 py-2.5 md:py-3 text-sm md:text-base"
+                className="border-[0.94px] border-[#007F5F1A] bg-[#F6F8FA] text-[#676B74] outline-none rounded-md px-3 md:px-4 py-2.5 md:py-3 text-sm md:text-base"
                 required
               />
             </div>
@@ -151,7 +151,7 @@ export default function ContactSection() {
               name="member_type"
               value={form.member_type}
               onChange={handleChange}
-              className="border-[0.94px] border-[#007F5F1A] bg-[#F6F8FA] outline-none rounded-md px-3 md:px-4 py-2.5 md:py-3 w-full text-sm md:text-base"
+              className="border-[0.94px] border-[#007F5F1A] bg-[#F6F8FA] text-[#676B74] outline-none rounded-md px-3 md:px-4 py-2.5 md:py-3 w-full text-sm md:text-base"
             >
               <option value="">Member</option>
               <option value="Member">Member</option>
@@ -165,7 +165,7 @@ export default function ContactSection() {
               onChange={handleChange}
               placeholder="Type Your Message"
               rows={4}
-              className="border-[0.94px] border-[#007F5F1A] bg-[#F6F8FA] outline-none rounded-md px-3 md:px-4 py-2.5 md:py-3 w-full text-sm md:text-base"
+              className="border-[0.94px] border-[#007F5F1A] bg-[#F6F8FA] text-[#676B74] outline-none rounded-md px-3 md:px-4 py-2.5 md:py-3 w-full text-sm md:text-base"
               required
             />
 

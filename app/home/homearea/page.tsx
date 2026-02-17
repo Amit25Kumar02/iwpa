@@ -56,7 +56,7 @@ export default function KeyFocusAreasSection() {
   if (!data) return <div className="text-center py-20">Loading...</div>;
 
   return (
-    <section className="py-20 bg-[#F6F8FA] text-center">
+    <section className="py-14 bg-[#F6F8FA] text-center">
       <div className="max-w-7xl mx-auto px-6">
         {/* Badge */}
         <div className="mb-4">
@@ -87,7 +87,7 @@ export default function KeyFocusAreasSection() {
                 ${
                   activeCard === index
                     ? "bg-[#1F7A4D] text-[#ffffff] shadow-xl scale-105"
-                    : "bg-[#ffffff] text-[#001233] hover:shadow-md scale-95"
+                    : "bg-[#ffffff] text-[#001233] hover:shadow-md scale-85"
                 }`}
             >
               {/* Icon */}

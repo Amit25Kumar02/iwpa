@@ -47,7 +47,7 @@ export default function OurValueSection() {
         return <div className="text-center py-20 text-gray-500">Loading...</div>;
 
     return (
-        <section className="mt-8 md:mt-12 py-8 md:py-12 bg-[#F6F8FA]">
+        <section className="py-8 md:py-12 bg-[#F6F8FA]">
             <div className="max-w-7xl mx-auto px-4 md:px-6 text-center">
                 {/* Badge */}
                 <span className="inline-flex items-center gap-2 bg-[#0B6B3A14] text-[#0B6B3A] px-3 md:px-4 py-2 rounded-md text-xs md:text-sm font-medium mb-4">

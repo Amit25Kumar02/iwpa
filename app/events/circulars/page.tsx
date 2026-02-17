@@ -66,9 +66,8 @@ export default function CircularsPage() {
 
   return (
     <InnerPageLayout title="Circulars" breadcrumbs={[
-      {label: "Event"},
+      { label: "Events", href: "/events" },
       { label: "Circulars" },
-    
     ]}
     >
       <section className="bg-[#F6F8FA] py-10 md:py-14">
@@ -100,7 +99,7 @@ export default function CircularsPage() {
               key={year}
               onClick={() => setSelectedYear(year)}
               className={`px-3 md:px-8 py-2 rounded-md transition text-lg font-semibold cursor-pointer ${
-                selectedYear === year ? "bg-[#1F7A4D] text-[#ffffff]" : "bg-[#f6f8fa] hover:bg-[#1F7A4D] hover:text-[#ffffff]"
+                selectedYear === year ? "bg-[#1F7A4D] text-[#ffffff]" : "bg-[#f6f8fa] text-[#001233] hover:bg-[#1F7A4D] hover:text-[#ffffff]"
               }`}
             >
               {year}
@@ -116,8 +115,8 @@ export default function CircularsPage() {
                 key={item.id}
                 className="flex flex-col md:flex-row md:justify-between md:items-center gap-4 bg-[#ffffff] border-[0.70px] border-[#E2E8F0]  rounded-lg p-4 md:px-6 md:py-4"
               >
-                <div className="flex items-start md:items-center gap-3">
-                  <div className="bg-linear-to-br from-[#FB2C36] to-[#E7000B] md:h-15 md:w-15 text-[#ffffff] p-3.5 rounded-lg ">
+                <div className="flex items-center gap-3">
+                  <div className="bg-linear-to-br from-[#FB2C36] to-[#E7000B] h-15 w-15 text-[#ffffff] p-3.5 rounded-lg flex items-center justify-center">
                     <FileText size={30} className="" />
                   </div>
                   <div className="flex-1">

@@ -50,7 +50,7 @@ export default function JoinIwpaCTA() {
   if (!data) return null;
 
   return (
-    <section className="py-8 md:py-16 lg:py-20 px-4 md:px-4">
+    <section className="py-8 md:py-16 lg:py-20 px-4 md:px-4 bg-[#ffffff]">
       <div
         className="max-w-6xl mx-auto min-h-[350px] md:max-h-[351px] rounded-2xl overflow-hidden relative bg-cover bg-center"
         style={{

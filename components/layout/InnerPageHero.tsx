@@ -56,10 +56,21 @@ export default function InnerPageHero({ title, breadcrumbs = [] }: Props) {
       {title}
     </h1>
 
-    <div className="text-sm text-gray-200 flex gap-2">
-      <Link href="/">Home</Link>
-      <span>&gt;</span>
-      <span className="text-white font-semibold">{title}</span>
+    <div className="text-sm text-gray-200 flex gap-2 flex-wrap">
+      <Link href="/" className="hover:text-white transition-colors">Home</Link>
+
+      {breadcrumbs.map((item, i) => (
+        <span key={i} className="flex gap-2">
+          <span>&gt;</span>
+          {item.href ? (
+            <Link href={item.href} className="hover:text-white transition-colors">
+              {item.label}
+            </Link>
+          ) : (
+            <span className="text-white font-bold">{item.label}</span>
+          )}
+        </span>
+      ))}
     </div>
   </div>
 </div>

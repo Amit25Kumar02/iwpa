@@ -60,10 +60,13 @@ export default function IwpaPresenceSection() {
   // 🔁 update underline position & width
   useEffect(() => {
     const activeTab = tabRefs.current[activeIndex];
-    if (activeTab) {
+    const container = activeTab?.parentElement;
+    if (activeTab && container) {
+      const containerRect = container.getBoundingClientRect();
+      const tabRect = activeTab.getBoundingClientRect();
       setIndicator({
         width: activeTab.offsetWidth,
-        left: activeTab.offsetLeft,
+        left: tabRect.left - containerRect.left,
       });
     }
   }, [activeIndex, data?.contactcard]);
@@ -73,12 +76,12 @@ export default function IwpaPresenceSection() {
   const activeOffice = data.contactcard[activeIndex];
 
   return (
-    <section className="py-10 md:py-20 bg-[#F6F8FA]">
+    <section className="py-8 md:py-14 bg-[#F6F8FA]">
       <div className="max-w-7xl mx-auto px-4 md:px-6">
 
         {/* Header */}
-        <div className="text-center mb-8 md:mb-10">
-          <span className="inline-flex items-center gap-2 bg-[#1F7A4D0F] border border-[#1F7A4D0F] text-[#1F7A4D] px-3 md:px-4 py-2 rounded-md text-xs md:text-sm font-medium mb-4">
+        <div className="text-center mb-6 md:mb-10 px-2">
+          <span className="inline-flex items-center gap-2 bg-[#1F7A4D0F] border border-[#1F7A4D0F] text-[#1F7A4D] px-3 md:px-4 py-1.5 md:py-2 rounded-md text-xs md:text-sm font-medium mb-3 md:mb-4">
             {data.badge_img && (
               <img
                 src={data.badge_img}
@@ -89,23 +92,23 @@ export default function IwpaPresenceSection() {
             {data.badge}
           </span>
 
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#001233]">
+          <h2 className="text-xl md:text-3xl lg:text-4xl font-bold text-[#001233] px-2">
             {data.title}
           </h2>
         </div>
 
         {/* Tabs */}
         {data.contactcard.length > 0 && (
-          <div className="relative mb-8 md:mb-12">
+          <div className="relative mb-6 md:mb-12">
 
             {/* Tab Buttons */}
-            <div className="relative flex justify-center gap-4 md:gap-6 text-[15px] font-bold max-w-6xl mx-auto">
+            <div className="relative flex flex-wrap justify-center gap-2 md:gap-6 text-[10px] md:text-[15px] font-bold max-w-6xl mx-auto px-2">
               {data.contactcard.map((office, index) => (
                 <button
                   key={index}
                   ref={(el) => { tabRefs.current[index] = el; }}
                   onClick={() => setActiveIndex(index)}
-                  className={`pb-4 transition whitespace-nowrap cursor-pointer
+                  className={`pb-2 md:pb-4 transition whitespace-nowrap cursor-pointer
                     ${
                       activeIndex === index
                         ? "text-[#1F7A4D]"
@@ -119,7 +122,7 @@ export default function IwpaPresenceSection() {
             </div>
 
             {/* White base line */}
-            <div className="relative mt-1 h-[3.88px] bg-white rounded-full max-w-6xl mx-auto">
+            <div className="hidden md:block relative mt-1 h-[2.5px] md:h-[3.88px] bg-[#ffffff] rounded-full max-w-6xl mx-auto">
               {/* Green active line */}
               <span
                 className="absolute top-0 h-full bg-[#1F7A4D] rounded-full transition-all duration-300 ease-in-out"
@@ -135,21 +138,21 @@ export default function IwpaPresenceSection() {
 
         {/* Active Office Content */}
         {activeOffice && (
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-10 items-start bg-white rounded-2xl">
+          <div className="grid grid-cols-1 lg:grid-cols-2 md:gap-10 items-center bg-[#ffffff] rounded-2xl overflow-hidden">
 
             {/* Left Info */}
-            <div className="bg-[#F6F8FA] p-4 md:p-8 rounded-2xl shadow-sm md:my-auto md:ml-10 order-2 lg:order-1">
-              <p className="mb-3 md:mb-4 text-sm md:text-base">
-                <strong>Address:</strong> {activeOffice.address}
+            <div className="bg-[#F6F8FA] p-4 md:p-8 md:ml-10 md:my-8 rounded-none md:rounded-2xl order-2 lg:order-1">
+              <p className="mb-3 md:mb-4 text-xs md:text-base text-[#676B74]">
+                <strong className="text-[#001233]">Address:</strong> {activeOffice.address}
               </p>
-              <p className="mb-3 md:mb-4 text-sm md:text-base">
-                <strong>Phone:</strong> {activeOffice.phone}
+              <p className="mb-3 md:mb-4 text-xs md:text-base text-[#676B74]">
+                <strong className="text-[#001233]">Phone:</strong> {activeOffice.phone}
               </p>
-              <p className="mb-3 md:mb-4 text-sm md:text-base">
-                <strong>Tele-fax:</strong> {activeOffice.fax}
+              <p className="mb-3 md:mb-4 text-xs md:text-base text-[#676B74]">
+                <strong className="text-[#001233]">Tele-fax:</strong> {activeOffice.fax}
               </p>
-              <p className="text-sm md:text-base">
-                <strong>Email:</strong> {activeOffice.email}
+              <p className="text-xs md:text-base text-[#676B74]">
+                <strong className="text-[#001233]">Email:</strong> {activeOffice.email}
               </p>
             </div>
 
@@ -159,7 +162,7 @@ export default function IwpaPresenceSection() {
                 <img
                   src={activeOffice.img}
                   alt={activeOffice.tab_name}
-                  className="w-full h-[250px] md:h-[320px] object-cover rounded-2xl md:rounded-l-none md:rounded-r-2xl shadow-md"
+                  className="w-full h-[180px] md:h-[320px] object-cover rounded-none md:rounded-l-none md:rounded-r-2xl shadow-md"
                 />
               </div>
             )}
