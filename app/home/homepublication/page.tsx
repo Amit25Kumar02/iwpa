@@ -56,7 +56,7 @@ export default function PublicationsSection() {
 
   return (
     <section className="py-20 bg-[#F8FAFC]">
-      <div className="max-w-7xl mx-auto px-6 text-center">
+      <div className="max-w-6xl mx-auto px-6 text-center">
         {/* Badge from API */}
         {header?.badge && (
           <span className="inline-flex items-center gap-2 bg-[#0B6B3A14] text-[#0B6B3A] px-4 py-2 rounded-md text-sm font-medium mb-4">
@@ -83,7 +83,7 @@ export default function PublicationsSection() {
           {posts.length > 0 ? posts.map((post) => (
             <div
               key={post.id}
-              className="bg-white rounded-2xl overflow-hidden shadow-sm border border-[#E2E8F0] text-left"
+              className="bg-white rounded-[13px] overflow-hidden shadow-sm border border-[#E2E8F0] text-left"
             >
               {post.img && post.img !== '' && (
                 <img
@@ -105,7 +105,7 @@ export default function PublicationsSection() {
                   </div>
                 )}
 
-                <h3 className="font-bold text-[#0F172A] mb-4">
+                <h3 className="font-bold text-[#0F172A] text-[20px] mb-4">
                   {post.heading || 'Publication Title'}
                 </h3>
 

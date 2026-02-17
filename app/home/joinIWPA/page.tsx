@@ -50,15 +50,16 @@ export default function JoinIwpaCTA() {
   if (!data) return null;
 
   return (
-    <section className="py-8 md:py-16 lg:py-20 px-4 md:px-6">
+    <section className="py-8 md:py-16 lg:py-20 px-4 md:px-4">
       <div
-        className="max-w-7xl mx-auto min-h-[350px] md:max-h-[351px] rounded-2xl overflow-hidden relative bg-cover bg-center"
+        className="max-w-6xl mx-auto min-h-[350px] md:max-h-[351px] rounded-2xl overflow-hidden relative bg-cover bg-center"
         style={{
           backgroundImage: `url(${data.bg_image})`,
         }}
       >
         {/* Overlay */}
-        <div className="absolute inset-0 bg-linear-to-br from-[#00000000] to-[#000000]" />
+        <div className="absolute inset-0 z-10 bg-gradient-to-r from-transparent via-black/40 to-black/80" />
+
 
         <div className="relative z-10 grid md:grid-cols-2 items-center px-6 py-10 md:px-10 md:py-0 gap-6 md:gap-8 h-full">
 
@@ -72,7 +73,7 @@ export default function JoinIwpaCTA() {
               {data.description}
             </p>
 
-            <div className="flex flex-col md:flex-row  bg-[#FFFFFF] p-2 rounded-lg gap-2 md:gap-3 max-w-md mx-auto md:mx-0">
+            <div className="flex flex-col md:flex-row  bg-[#FFFFFF] p-2 rounded-lg gap-2 md:gap-3 max-w-[371px] mx-auto md:mx-0">
               <input
                 type="email"
                 placeholder={data.placeholder}
@@ -90,11 +91,11 @@ export default function JoinIwpaCTA() {
 
           {/* Right Image */}
           {data.side_image && (
-            <div className="hidden md:flex justify-end">
+            <div className="hidden md:flex justify-end mt-1">
               <img
                 src={data.side_image}
                 alt="Join IWPA"
-                className="max-h-[280px] lg:max-h-[350px]"
+                className="max-h-[280px] lg:max-h-[355px] "
               />
             </div>
           )}

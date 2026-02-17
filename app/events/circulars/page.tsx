@@ -94,13 +94,13 @@ export default function CircularsPage() {
         </div>
 
         {/* Year Filters */}
-        <div className="flex flex-wrap justify-center gap-4 md:gap-10 mb-10 bg-[#FFFFFF] min-h-[60px] md:h-24 items-center shadow-sm rounded-lg px-4 md:px-6 w-fit mx-auto">
+        <div className="flex flex-wrap justify-center gap-4 md:gap-10 mb-10 bg-[#FFFFFF] min-h-[60px] md:h-20 items-center shadow-sm rounded-lg px-4 md:px-6 w-fit mx-auto">
           {years.map((year) => (
             <button
               key={year}
               onClick={() => setSelectedYear(year)}
-              className={`px-3 md:px-4 py-2 rounded-md transition text-lg font-semibold cursor-pointer ${
-                selectedYear === year ? "bg-[#1F7A4D] text-[#ffffff]" : "bg-[#F6F8FA] hover:bg-[#1F7A4D] hover:text-[#ffffff]"
+              className={`px-3 md:px-8 py-2 rounded-md transition text-lg font-semibold cursor-pointer ${
+                selectedYear === year ? "bg-[#1F7A4D] text-[#ffffff]" : "bg-[#f6f8fa] hover:bg-[#1F7A4D] hover:text-[#ffffff]"
               }`}
             >
               {year}
@@ -114,7 +114,7 @@ export default function CircularsPage() {
             filteredCirculars.map((item) => (
               <div
                 key={item.id}
-                className="flex flex-col md:flex-row md:justify-between md:items-center gap-4 bg-[#ffffff] border-[0.76px] border-[#E2E8F0] shadow-sm rounded-lg p-4 md:px-6 md:py-4"
+                className="flex flex-col md:flex-row md:justify-between md:items-center gap-4 bg-[#ffffff] border-[0.70px] border-[#E2E8F0]  rounded-lg p-4 md:px-6 md:py-4"
               >
                 <div className="flex items-start md:items-center gap-3">
                   <div className="bg-linear-to-br from-[#FB2C36] to-[#E7000B] md:h-15 md:w-15 text-[#ffffff] p-3.5 rounded-lg ">

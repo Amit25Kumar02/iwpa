@@ -85,7 +85,7 @@ export default function UsefulLinksPage() {
               <button
                 key={i}
                 onClick={() => setActiveIndex(i)}
-                className={`relative px-4 md:px-6 py-8 md:py-12 rounded-xl text-sm font-semibold border-[2.5px] transition-all cursor-pointer ${
+                className={`relative px-4 md:px-6 py-6 md:py-6 rounded-xl text-[16px] font-bold border-[2.5px] transition-all cursor-pointer ${
                   activeIndex === i
                     ? "border-[#1F7A4D] text-[#0B3C5D] shadow-sm"
                     : "border-[#E2E8F0] text-[#0B3C5D] hover:border-[#1F7A4D]"
@@ -101,7 +101,7 @@ export default function UsefulLinksPage() {
 
           {/* Active Panel */}
           {data.link_category[activeIndex] && (
-            <div className="border-[2.5px] border-[#1F7A4D] rounded-2xl p-4 md:p-6 lg:p-8 bg-[#FFFFFF] shadow-sm">
+            <div className="border-[2.5px] border-[#1F7A4D] rounded-2xl px-4 py-4 md:px-6 md:py-10 lg:px-8 bg-[#FFFFFF] shadow-sm">
               <div className="flex justify-between items-center mb-4 md:mb-6">
                 <h3 className="text-base md:text-lg font-semibold text-[#0B3C5D]">
                   {data.link_category[activeIndex].tab_name}
@@ -118,7 +118,7 @@ export default function UsefulLinksPage() {
                 {data.link_category[activeIndex].link_item?.map((link, index) => (
                   <div
                     key={index}
-                    className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 sm:gap-4 bg-[#FFFFFF] rounded-lg px-3 md:px-4 py-3 border-[0.76px] border-[#E2E8F0]"
+                    className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 sm:gap-4 bg-[#FFFFFF] rounded-lg px-3 md:px-4 py-6 border-[0.76px] border-[#E2E8F0]"
                   >
                     <span className="text-[#0B3C5D] font-bold text-sm md:text-base">{link.lable}</span>
                     <a

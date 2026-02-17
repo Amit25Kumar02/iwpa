@@ -84,7 +84,7 @@ export default function AboutIWPA() {
 
                     {/* CONTENT */}
                     <div className="order-2 lg:order-2">
-                        <p className="text-[#6B7280] text-sm md:text-base lg:text-lg leading-relaxed mb-6">
+                        <p className="text-[#6B7280] text-[15px] leading-relaxed mb-6">
                             {data.description}
                         </p>
                         
@@ -94,7 +94,7 @@ export default function AboutIWPA() {
                             <div className="relative flex flex-col sm:flex-row gap-4 sm:gap-6 md:gap-10 cursor-pointer">
                                 <button 
                                     onClick={() => setActiveTab('vision')}
-                                    className={`text-lg md:text-xl lg:text-[22px] font-semibold pt-3 relative text-left cursor-pointer ${
+                                    className={`text-lg  font-bold pt-3 relative text-left cursor-pointer ${
                                         activeTab === 'vision' ? 'text-[#0B6B3A]' : 'text-[#0F172A]'
                                     }`}
                                 >
@@ -105,7 +105,7 @@ export default function AboutIWPA() {
                                 </button>
                                 <button 
                                     onClick={() => setActiveTab('mission')}
-                                    className={`text-lg md:text-xl lg:text-[22px] font-semibold pb-2 pt-3 relative text-left cursor-pointer ${
+                                    className={`text-lg  font-bold pb-2 pt-3 relative text-left cursor-pointer ${
                                         activeTab === 'mission' ? 'text-[#0B6B3A]' : 'text-[#0F172A]'
                                     }`}
                                 >
@@ -116,7 +116,7 @@ export default function AboutIWPA() {
                                 </button>
                                 <button 
                                     onClick={() => setActiveTab('why')}
-                                    className={`text-lg md:text-xl lg:text-[22px] font-semibold pb-2 pt-3 relative text-left cursor-pointer ${
+                                    className={`text-lg font-bold pb-2 pt-3 relative text-left cursor-pointer ${
                                         activeTab === 'why' ? 'text-[#0B6B3A]' : 'text-[#0F172A]'
                                     }`}
                                 >
@@ -142,11 +142,11 @@ export default function AboutIWPA() {
                                 </div>
                             ) : (
                                 <div className="space-y-4 mt-6 mb-8 md:mb-10">
-                                    <p className="text-[#334155] text-sm md:text-base lg:text-[17px] leading-relaxed">
+                                    <p className="text-[#334155] text-[15px] leading-relaxed">
                                         <span className="font-semibold text-[#0F172A]">Our vision:</span>{" "}
                                         {data.vision}
                                     </p>
-                                    <p className="text-[#334155] text-sm md:text-base lg:text-[17px] leading-relaxed">
+                                    <p className="text-[#334155] text-[15px] leading-relaxed">
                                         <span className="font-semibold text-[#0F172A]">Our Mission:</span>{" "}
                                         {data.mission}
                                     </p>

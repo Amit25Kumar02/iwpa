@@ -82,12 +82,12 @@ export default function KeyFocusAreasSection() {
           {data.areas.map((area, index) => (
             <div
               key={area.id}
-              onClick={() => setActiveCard(index)}
+              onMouseEnter={() => setActiveCard(index)}
               className={`rounded-2xl p-8 transition-all duration-300 cursor-pointer
                 ${
                   activeCard === index
                     ? "bg-[#1F7A4D] text-[#ffffff] shadow-xl scale-105"
-                    : "bg-[#ffffff] text-[#001233] hover:shadow-md hover:scale-105 scale-95"
+                    : "bg-[#ffffff] text-[#001233] hover:shadow-md scale-95"
                 }`}
             >
               {/* Icon */}
@@ -116,8 +116,8 @@ export default function KeyFocusAreasSection() {
 
               {/* Description */}
               <p
-                className={`text-sm leading-relaxed mb-5 ${
-                  activeCard === index ? "text-[#CBCBCB]" : "text-[#676B74]"
+                className={`text-sm leading-relaxed mb-5 hover:text-[#CBCBCB] ${
+                  activeCard === index ? "text-[#CBCBCB]" : "text-[#676B74] "
                 }`}
               >
                 {area.description}

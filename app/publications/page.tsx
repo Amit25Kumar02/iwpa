@@ -106,7 +106,7 @@ export default function PublicationsPage() {
           <button
             key={year}
             onClick={() => setSelectedYear(year)}
-            className={`px-4 py-2 rounded-md text-lg font-semibold ${
+            className={`px-8 py-2 rounded-md text-lg font-semibold ${
               selectedYear === year
                 ? "bg-[#1F7A4D] text-[#ffffff]"
                 : "bg-[#F6F8FA] text-[#001233] hover:bg-[#e2e8f0]"
@@ -118,17 +118,17 @@ export default function PublicationsPage() {
       </div>
 
       {/* Publication Grid */}
-      <div className="grid md:grid-cols-4 gap-6 md:px-20">
+      <div className="grid md:grid-cols-4 gap-6 md:px-46">
         {filtered.length > 0 ? filtered.map((publication) => (
           <div
             key={publication.id}
-            className="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-200 "
+            className="bg-white w-[281px] h-[281px] rounded-sm overflow-hidden shadow-sm border border-gray-200 "
           >
             {publication.img && publication.img !== '' ? (
               <img
                 src={publication.img}
                 alt={`Publication ${publication.year}`}
-                className="w-full h-full  rounded-lg mb-3"
+                className="w-[281px] h-[281px]  rounded-sm mb-3"
               />
             ) : (
               <div className="w-full h-48 bg-gray-100 rounded-lg mb-3 flex items-center justify-center">

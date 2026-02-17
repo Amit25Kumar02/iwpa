@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 import { formatImageUrl } from "@/lib/utils";
+import { ArrowUpRight } from "lucide-react";
 
 interface CtaData {
   heading: string;
@@ -42,12 +43,12 @@ export default function CtaJoinSection() {
 
   return (
     <section className="py-8 md:py-12 lg:py-14 bg-[#FFFFFF]">
-      <div className="max-w-7xl mx-auto px-4 md:px-6 md:h-88">
+      <div className="max-w-6xl mx-auto px-4 md:px-6 md:h-88">
         <div className="relative rounded-2xl md:h-87 overflow-hidden">
           {/* Background Image */}
           {data.img && (
             <div
-              className="absolute inset-0 bg-cover  bg-center"
+              className="absolute inset-0 bg-cover bg-center"
               style={{ backgroundImage: `url(${data.img})` }}
             />
           )}
@@ -56,31 +57,22 @@ export default function CtaJoinSection() {
           <div className="absolute inset-0 bg-linear-br from-[#00000000] to-[#000000]" />
 
           {/* Content */}
-          <div className="relative z-10 py-12 md:py-16 px-4 md:px-6 text-center">
+          <div className="relative z-10 py-12 md:py-20 px-4 md:px-6 text-center flex flex-col align-center">
             <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-[41px] max-w-4xl mx-auto font-bold text-[#001233] mb-6 md:mb-8">
               {data.heading}
             </h2>
 
             {/* Email Form */}
-            <div className="flex flex-col sm:flex-row justify-center bg-[#ffffff] p-2 rounded-lg items-center gap-2 md:gap-3 max-w-xl mx-auto">
+            <div className="flex flex-col sm:flex-row justify-center bg-[#ffffff] py-1 px-2 rounded-lg items-center gap-2 md:gap-3 max-w-[371px] mx-auto">
               <input
                 type="email"
                 placeholder="Enter Your Email"
                 className="w-full sm:flex-1 px-4 md:px-5 py-2.5 md:py-3 rounded-lg border border-white/30 bg-white text-[#0F172A] placeholder:text-[#676B74] focus:outline-none text-sm md:text-base"
               />
 
-              <button className="bg-[#1F7A4D] hover:opacity-90 text-[#ffffff] px-4 md:px-6 py-2.5 md:py-3 rounded-lg font-medium flex items-center gap-2 text-sm md:text-base whitespace-nowrap">
+              <button className="bg-[#1F7A4D] hover:opacity-90 text-[#ffffff] py-2 px-3 font-bold rounded-lg flex items-center gap-1 text-sm md:text-base whitespace-nowrap">
                 {data.button}
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="w-4 h-4"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M7 17L17 7M7 7h10v10" />
-                </svg>
+              <ArrowUpRight size={16} strokeWidth={3} />
               </button>
             </div>
           </div>

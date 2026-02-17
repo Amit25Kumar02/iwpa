@@ -21,12 +21,12 @@ export default function HomeAddPage() {
         const res = await axios.get(
           `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/homeadd?populate=homeaddcard&populate=homeaddcard.badge_img`
         );
-        
+
         const data = res.data.data;
         const servicesArray = data?.homeaddcard || [];
-        
+
         console.log('Services data:', servicesArray);
-        
+
         setServices(servicesArray.map((item: any) => {
           const imgUrl = item.badge_img?.[0]?.url;
           console.log('Image URL:', imgUrl);
@@ -48,31 +48,47 @@ export default function HomeAddPage() {
 
   if (loading) return <div className="w-full bg-[#1e7f4f] py-8"><div className="text-center text-white">Loading...</div></div>;
 
-  return (
-    <div className="w-full md:h-14.5 bg-[#1e7f4f] py-4 md:py-0 relative z-50 flex items-center overflow-hidden">
-      <div className="flex animate-scroll">
-        <div className="flex items-center gap-6 px-6 whitespace-nowrap">
-          {services.map((item) => (
-            <div
-              key={item.id}
-              className="flex items-center gap-2"
-            >
-              {item.badge_img && (
-                <img
-                  src={item.badge_img}
-                  alt={item.title}
-                  className="w-[13.8px] h-[13.8px] object-contain"
-                />
-              )}
+ return (
+  <div className="w-full bg-[#1e7f4f] py-4 overflow-hidden relative">
+    <div className="marquee">
+      <div className="marquee__inner">
 
-              <h3 className="text-[17px] font-bold uppercase text-[#FFFFFF]">
-                {item.title}
-              </h3>
-            </div>
-          ))}
-        </div>
-       
+        {/* ORIGINAL */}
+        {services.map((item) => (
+          <div key={item.id} className="flex items-center gap-2 mx-4">
+            {item.badge_img && (
+              <img
+                src={item.badge_img}
+                alt={item.title}
+                className="w-[14px] h-[14px] object-contain"
+              />
+            )}
+            <span className="text-[17px] font-bold uppercase text-white">
+              {item.title}
+            </span>
+          </div>
+        ))}
+
+        {/* DUPLICATE (for circular loop) */}
+        {services.map((item) => (
+          <div key={`dup-${item.id}`} className="flex items-center gap-2 mx-4">
+            {item.badge_img && (
+              <img
+                src={item.badge_img}
+                alt={item.title}
+                className="w-[14px] h-[14px] object-contain"
+              />
+            )}
+            <span className="text-[17px] font-bold uppercase text-white">
+              {item.title}
+            </span>
+          </div>
+        ))}
+
       </div>
     </div>
-  );
+  </div>
+);
+
+
 }

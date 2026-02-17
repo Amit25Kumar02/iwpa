@@ -91,7 +91,7 @@ export default function EventsPage() {
         {meetings.length > 0 && meetings.map((event: any) => (
           <div
             key={event.id}
-            className="flex flex-col sm:flex-row sm:justify-between sm:items-center bg-[#FFFFFF] border border-[#E2E8F0] shadow-sm rounded-lg px-4 md:px-6 py-4 gap-3 sm:gap-0"
+            className="flex flex-col sm:flex-row sm:justify-between sm:items-center bg-[#FFFFFF] border border-[#E2E8F0] shadow-sm rounded-lg px-4 md:px-6 py-6 gap-3 sm:gap-0"
           >
             <div>
               <p className="font-bold text-[#0B3C5D] text-lg md:text-base">

@@ -93,14 +93,14 @@ export default function CircularsSection() {
         )}
 
         {/* Region Tabs */}
-        <div className="p-6 bg-[#F6F8FA]">
+        <div className="p-6 bg-[#F6F8FA] rounded-xl">
           <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4 mb-8 md:mb-10 bg-[#F6F8FA]">
             {regions.map((region) => (
               <button
                 key={region.id}
                 onClick={() => setSelectedRegion(region.id)}
-                className={`relative p-3 md:p-4 rounded-xl border-[1.53px] text-base font-bold transition cursor-pointer h-24 md:h-32 ${selectedRegion === region.id
-                    ? "border-[#1F7A4D] shadow-md bg-[#E8F5E9]"
+                className={`relative p-3 md:p-4 rounded-xl border-[2.53px] text-base font-bold transition cursor-pointer h-24 md:h-32 ${selectedRegion === region.id
+                    ? "border-[#1F7A4D] shadow-md "
                     : "border-[#E2E8F0] bg-[#FFFFFF]"
                   }`}
               >
@@ -115,7 +115,7 @@ export default function CircularsSection() {
 
           {/* Circular List */}
           {activeRegion && (
-            <div className="bg-[#ffffff] border-[1.53px] border-[#1F7A4D] rounded-xl p-4 md:p-6 lg:p-8 text-left relative">
+            <div className="bg-[#ffffff] border-[2.53px] border-[#1F7A4D] rounded-xl p-4 md:p-6 lg:p-8 text-left relative">
               <div className="flex justify-between items-center mb-4 md:mb-6">
                 <h3 className="text-lg md:text-xl font-bold text-[#0B3C5D]">
                   {activeRegion.tab_name} Circulars
@@ -153,9 +153,9 @@ export default function CircularsSection() {
                     <a
                       href={c.button_url || "#"}
                       target="_blank"
-                      className="text-[#1F7A4D] text-sm font-bold flex items-center gap-1 w-fit"
+                      className="text-[#1F7A4D] text-sm  flex items-center gap-1 w-fit"
                     >
-                      {c.button} <ArrowRight size={18} strokeWidth={3} />
+                      {c.button} <ArrowRight size={18}  />
                     </a>
                   </div>
                 ))}
