@@ -57,7 +57,7 @@ export default function AboutIWPA() {
         return <div className="text-center py-20 text-gray-500">Loading...</div>;
 
     return (
-        <section className="py-12 md:py-16 lg:py-20">
+        <section className="py-12 md:py-14 lg:py-14">
             <div className="max-w-7xl mx-auto px-4 md:px-6 text-center">
                 <span className="inline-flex items-center gap-2 bg-[#00796B14] text-[#00796B] px-3 md:px-4 py-2 rounded-lg text-xs md:text-sm mb-4">
                     <img

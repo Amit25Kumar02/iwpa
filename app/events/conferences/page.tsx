@@ -38,7 +38,7 @@ export default function ConferencesPage() {
   }
 
   return (
-    <section className="py-16 bg-white relative overflow-hidden">
+    <section className="py-14 bg-white relative overflow-hidden">
       {/* Top Left Vector */}
             <Image
               src="/vector/elements3.png.png"

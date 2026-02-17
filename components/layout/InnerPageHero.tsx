@@ -48,7 +48,7 @@ export default function InnerPageHero({ title, breadcrumbs = [] }: Props) {
   )}
 
   {/* LEFT DARK OVERLAY */}
-  <div className="absolute inset-0 z-10 bg-gradient-to-r from-[#001233]/90 via-[#001233]/60 to-transparent" />
+  <div className="absolute inset-0 z-10 bg-gradient-to-r from-[#001233]/100 via-[#001233]/70 to-transparent" />
 
   {/* Content */}
   <div className="relative z-20 max-w-7xl mx-auto px-4 md:px-6 h-full flex flex-col justify-center">

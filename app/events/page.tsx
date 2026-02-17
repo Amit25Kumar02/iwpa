@@ -66,7 +66,7 @@ export default function EventsPage() {
 
   return (
     <InnerPageLayout title="Events" breadcrumbs={[{ label: "Events" }]}>
-      <section className="bg-[#F6F8FA] py-10 md:py-20">
+      <section className="bg-[#F6F8FA] py-10 md:py-14">
 
       {/* 🔹 Dynamic Section Header */}
       <div className="text-center mb-8 md:mb-10 px-4">

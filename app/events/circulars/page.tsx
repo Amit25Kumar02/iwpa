@@ -71,7 +71,7 @@ export default function CircularsPage() {
     
     ]}
     >
-      <section className="bg-[#F6F8FA] py-10 md:py-20">
+      <section className="bg-[#F6F8FA] py-10 md:py-14">
         {/* Tag */}
         <div className="text-center mb-10">
           {data.badge && (
