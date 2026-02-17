@@ -99,8 +99,8 @@ export default function CircularsSection() {
               <button
                 key={region.id}
                 onClick={() => setSelectedRegion(region.id)}
-                className={`relative p-3 md:p-4 rounded-xl border-[2.53px] text-base font-bold transition cursor-pointer h-24 md:h-32 ${selectedRegion === region.id
-                    ? "border-[#1F7A4D] shadow-md "
+                className={`relative p-3 md:p-4 rounded-xl text-[#0B3C5D] border-[2.53px] text-base font-bold transition cursor-pointer h-24 md:h-32 ${selectedRegion === region.id
+                    ? "border-[#1F7A4D] bg-[#FFFFFF] shadow-md "
                     : "border-[#E2E8F0] bg-[#FFFFFF]"
                   }`}
               >
