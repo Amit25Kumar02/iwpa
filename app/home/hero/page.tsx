@@ -101,7 +101,7 @@ export default function IndustryHeroSection() {
         )}
 
         {/* Buttons */}
-        <div className="relative z-30 flex flex-col sm:flex-row items-start sm:items-center gap-4 md:gap-4">
+        <div className="relative z-30 flex  sm:flex-row items-center sm:items-center gap-4 md:gap-4">
           {/* Play Button */}
           {data.video && (
             <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-[#1F7A4D] flex items-center justify-center">

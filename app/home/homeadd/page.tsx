@@ -49,7 +49,7 @@ export default function HomeAddPage() {
   if (loading) return <div className="w-full bg-[#1e7f4f] py-8"><div className="text-center text-white">Loading...</div></div>;
 
  return (
-  <div className="w-full bg-[#1e7f4f] py-4 overflow-hidden relative">
+  <div className="w-full bg-[#1e7f4f] py-4 overflow-hidden relative z-50 ">
     <div className="marquee">
       <div className="marquee__inner">
 
