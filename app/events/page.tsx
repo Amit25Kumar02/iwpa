@@ -73,7 +73,7 @@ export default function EventsPage() {
         <span className="inline-flex items-center gap-2 text-[#1F7A4D] bg-[#1F7A4D0F] px-3 md:px-4 py-2 border border-[#1F7A4D0F] rounded text-xs md:text-sm">
           {header?.badge_img?.url && (
             <img
-              src={header.badge_img.url}
+              src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${header.badge_img.url}`}
               alt="badge"
               className="w-3 h-3 md:w-4 md:h-4"
             />
