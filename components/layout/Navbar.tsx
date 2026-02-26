@@ -27,11 +27,12 @@ export default function Navbar() {
         <ul className="hidden lg:flex justify-end gap-7 py-3.5 mx-12.5 m-0 list-none">
           <li className="relative group">
             <Link href="/about" className="no-underline text-[#0b3d5c] font-semibold text-sm flex items-center gap-1 transition-all duration-300 hover:text-[#2ea44f]">
-              ABOUT IWPA <ChevronDown size={16} className="mt-0.5" />
+              ABOUT IWPA 
+              {/* <ChevronDown size={16} className="mt-0.5" /> */}
             </Link>
 
-            {/* Dropdown Menu */}
-            <div className="absolute top-full left-0 mt-1 w-56 bg-white border border-gray-200 rounded-lg shadow-lg z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+          
+            {/* <div className="absolute top-full left-0 mt-1 w-56 bg-white border border-gray-200 rounded-lg shadow-lg z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
               <div className="py-2">
                 <Link
                   href="/about"
@@ -58,7 +59,7 @@ export default function Navbar() {
                   Activity and Goals
                 </Link>
               </div>
-            </div>
+            </div> */}
           </li>
           <li className="relative group">
             <Link href="/events" className="no-underline text-[#0b3d5c] font-semibold text-sm flex items-center gap-1 transition-all duration-300 hover:text-[#2ea44f]">
@@ -68,12 +69,12 @@ export default function Navbar() {
             {/* Dropdown Menu */}
             <div className="absolute top-full left-0 mt-1 w-48 bg-white border border-gray-200 rounded-lg shadow-lg z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
               <div className="py-2">
-                <Link
+                {/* <Link
                   href="/events/circulars"
                   className="block px-4 py-2 text-sm text-[#0b3d5c] hover:bg-gray-50 hover:text-[#2ea44f] transition-colors"
                 >
                   Circulars
-                </Link>
+                </Link> */}
                 <Link
                   href="/events/#"
                   className="block px-4 py-2 text-sm text-[#0b3d5c] hover:bg-gray-50 hover:text-[#2ea44f] transition-colors"
@@ -104,38 +105,44 @@ export default function Navbar() {
                   WINDPRO Magazin
                 </Link>
                 <Link
+                  href="/publications/media"
+                  className="block px-4 py-2 text-sm text-[#0b3d5c] hover:bg-gray-50 hover:text-[#2ea44f] transition-colors"
+                >
+                  Media
+                </Link>
+                {/* <Link
                   href="/publications/#"
                   className="block px-4 py-2 text-sm text-[#0b3d5c] hover:bg-gray-50 hover:text-[#2ea44f] transition-colors"
                 >
                   Tutorials
-                </Link>
-                <Link
+                </Link> */}
+                {/* <Link
                   href="/publications/#"
                   className="block px-4 py-2 text-sm text-[#0b3d5c] hover:bg-gray-50 hover:text-[#2ea44f] transition-colors"
                 >
                   Training Centers
-                </Link>
-                <Link
+                </Link> */}
+                {/* <Link
                   href="/publications/#"
                   className="block px-4 py-2 text-sm text-[#0b3d5c] hover:bg-gray-50 hover:text-[#2ea44f] transition-colors"
                 >
                   Journals
-                </Link>
-                <Link
+                </Link> */}
+                {/* <Link
                   href="/publications/#"
                   className="block px-4 py-2 text-sm text-[#0b3d5c] hover:bg-gray-50 hover:text-[#2ea44f] transition-colors"
                 >
                   Magazin Tariffs
-                </Link>
+                </Link> */}
               </div>
             </div>
           </li>
-          <li className="relative group">
+          {/* <li className="relative group">
             <Link href="#" className="no-underline text-[#0b3d5c] font-semibold text-sm flex items-center gap-1 transition-all duration-300 hover:text-[#2ea44f]">
               MEMBERS <ChevronDown size={16} className="mt-0.5" />
             </Link>
 
-            {/* Dropdown Menu */}
+        
             <div className="absolute top-full left-0 mt-1 w-64 bg-white border border-gray-200 rounded-lg shadow-lg z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
               <div className="py-2">
                 <a
@@ -156,13 +163,13 @@ export default function Navbar() {
                 </a>
               </div>
             </div>
-          </li>
-          <li className="relative group">
+          </li> */}
+          {/* <li className="relative group">
             <Link href="/literature" className="no-underline text-[#0b3d5c] font-semibold text-sm flex items-center gap-1 transition-all duration-300 hover:text-[#2ea44f]">
               LITERATURE <ChevronDown size={16} className="mt-0.5" />
             </Link>
 
-            {/* Dropdown Menu */}
+      
             <div className="absolute top-full left-0 mt-1 w-64 bg-white border border-gray-200 rounded-lg shadow-lg z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
               <div className="py-2">
                 <a
@@ -175,13 +182,13 @@ export default function Navbar() {
                 </a>
               </div>
             </div>
-          </li>
+          </li> */}
 
-          <li>
+          {/* <li>
             <Link href="/sector-updates" className="no-underline text-[#0b3d5c] font-semibold text-sm flex items-center gap-1 transition-all duration-300 hover:text-[#2ea44f]">
               SECTOR UPDATES
             </Link>
-          </li>
+          </li> */}
           <li>
             <Link href="/useful-links" className="no-underline text-[#0b3d5c] font-semibold text-sm flex items-center gap-1 transition-all duration-300 hover:text-[#2ea44f]">
               USEFUL LINKS
@@ -211,9 +218,9 @@ export default function Navbar() {
                   className="w-full text-left px-4 py-2 text-[#0b3d5c] font-semibold text-sm hover:text-[#2ea44f] hover:bg-gray-50 flex items-center justify-between"
                 >
                   ABOUT IWPA
-                  <ChevronDown size={16} className={`transition-transform ${mobileDropdowns.about ? 'rotate-180' : ''}`} />
+                  {/* <ChevronDown size={16} className={`transition-transform ${mobileDropdowns.about ? 'rotate-180' : ''}`} /> */}
                 </button>
-                {mobileDropdowns.about && (
+                {/* {mobileDropdowns.about && (
                   <div className="pl-4 bg-gray-50">
                     <Link href="/about" className="block px-4 py-2 text-xs text-[#0b3d5c] hover:text-[#2ea44f]">
                       About IWPA
@@ -228,7 +235,7 @@ export default function Navbar() {
                       Activity and Goals
                     </Link>
                   </div>
-                )}
+                )} */}
               </li>
               <li>
                 <button
@@ -240,9 +247,9 @@ export default function Navbar() {
                 </button>
                 {mobileDropdowns.events && (
                   <div className="pl-4 bg-gray-50">
-                    <Link href="/events/circulars" className="block px-4 py-2 text-xs text-[#0b3d5c] hover:text-[#2ea44f]">
+                    {/* <Link href="/events/circulars" className="block px-4 py-2 text-xs text-[#0b3d5c] hover:text-[#2ea44f]">
                       Circulars
-                    </Link>
+                    </Link> */}
                     <Link href="/events" className="block px-4 py-2 text-xs text-[#0b3d5c] hover:text-[#2ea44f]">
                       Upcoming Events
                     </Link>
@@ -265,7 +272,10 @@ export default function Navbar() {
                     <Link href="/publications" className="block px-4 py-2 text-xs text-[#0b3d5c] hover:text-[#2ea44f]">
                       WINDPRO Magazin
                     </Link>
-                    <Link href="/publications" className="block px-4 py-2 text-xs text-[#0b3d5c] hover:text-[#2ea44f]">
+                    <Link href="/publications/media" className="block px-4 py-2 text-xs text-[#0b3d5c] hover:text-[#2ea44f]">
+                      Media
+                    </Link>
+                    {/* <Link href="/publications" className="block px-4 py-2 text-xs text-[#0b3d5c] hover:text-[#2ea44f]">
                       Tutorials
                     </Link>
                     <Link href="/publications" className="block px-4 py-2 text-xs text-[#0b3d5c] hover:text-[#2ea44f]">
@@ -276,11 +286,11 @@ export default function Navbar() {
                     </Link>
                     <Link href="/publications" className="block px-4 py-2 text-xs text-[#0b3d5c] hover:text-[#2ea44f]">
                       Magazin Tariffs
-                    </Link>
+                    </Link> */}
                   </div>
                 )}
               </li>
-              <li>
+              {/* <li>
                 <button
                   onClick={() => toggleMobileDropdown('members')}
                   className="w-full text-left px-4 py-2 text-[#0b3d5c] font-semibold text-sm hover:text-[#2ea44f] hover:bg-gray-50 flex items-center justify-between"
@@ -298,8 +308,8 @@ export default function Navbar() {
                     </a>
                   </div>
                 )}
-              </li>
-              <li>
+              </li> */}
+              {/* <li>
                 <button
                   onClick={() => toggleMobileDropdown('literature')}
                   className="w-full text-left px-4 py-2 text-[#0b3d5c] font-semibold text-sm hover:text-[#2ea44f] hover:bg-gray-50 flex items-center justify-between"
@@ -314,12 +324,12 @@ export default function Navbar() {
                     </a>
                   </div>
                 )}
-              </li>
-              <li>
+              </li> */}
+              {/* <li>
                 <Link href="/sector-updates" className="block px-4 py-2 text-[#0b3d5c] font-semibold text-sm hover:text-[#2ea44f] hover:bg-gray-50">
                   SECTOR UPDATES
                 </Link>
-              </li>
+              </li> */}
               <li>
                 <Link href="/useful-links" className="block px-4 py-2 text-[#0b3d5c] font-semibold text-sm hover:text-[#2ea44f] hover:bg-gray-50">
                   USEFUL LINKS

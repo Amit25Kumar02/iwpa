@@ -10,9 +10,17 @@ export default function Header() {
       <div className="bg-[#0B3C5D] py-4">
         <div className="max-w-300 mx-auto px-4 flex items-center justify-between">
           <div /> {/* Empty spacer */}
-          <button className="bg-[#1F7A4D] text-[#ffffff] flex gap-1 items-center border-none py-2 px-4 md:py-2.5 md:px-4.5 font-semibold rounded-md cursor-pointer transition-all duration-300 hover:bg-[#238636] text-sm md:text-base">
-            Become a Member <ArrowUpRight size={18} strokeWidth={3} />
-          </button>
+          {/* <button className="bg-[#1F7A4D] text-[#ffffff] flex gap-1 items-center border-none py-2 px-4 md:py-2.5 md:px-4.5 font-semibold rounded-md cursor-pointer transition-all duration-300 hover:bg-[#238636] text-sm md:text-base"> */}
+            <a
+              href="/pdf/IWPA-Membership-Form(New).pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-[#1F7A4D] text-[#ffffff] flex gap-1 items-center border-none py-2 px-4 md:py-2.5 md:px-4.5 font-semibold rounded-md cursor-pointer transition-all duration-300 hover:bg-[#238636] text-sm md:text-base"
+            >
+
+              Become a Member <ArrowUpRight size={18} strokeWidth={3} />
+            </a>
+          {/* </button> */}
         </div>
       </div>
 
