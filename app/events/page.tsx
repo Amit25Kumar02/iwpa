@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import axios from "axios";
 import InnerPageLayout from "@/components/layout/InnerPageLayout";
@@ -7,7 +7,7 @@ import Image from "next/image";
 import { ArrowRight, Calendar } from "lucide-react";
 import ConferencesPage from "./conferences/page";
 
-export default function EventsPage() {
+function EventsContent() {
   const searchParams = useSearchParams();
   const tab = searchParams.get('tab') || 'future';
   const [header, setHeader] = useState<any>(null);
@@ -127,5 +127,13 @@ export default function EventsPage() {
      <ConferencesPage />
 
     </InnerPageLayout>
+  );
+}
+
+export default function EventsPage() {
+  return (
+    <Suspense fallback={<div className="text-center py-20">Loading...</div>}>
+      <EventsContent />
+    </Suspense>
   );
 }
