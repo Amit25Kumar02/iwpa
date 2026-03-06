@@ -76,13 +76,13 @@ export default function Navbar() {
                   Circulars
                 </Link> */}
                 <Link
-                  href="/events/#"
+                  href="/events?tab=future"
                   className="block px-4 py-2 text-sm text-[#0b3d5c] hover:bg-gray-50 hover:text-[#2ea44f] transition-colors"
                 >
                   Upcoming Events
                 </Link>
                 <Link
-                  href="/events/#"
+                  href="/events?tab=past"
                   className="block px-4 py-2 text-sm text-[#0b3d5c] hover:bg-gray-50 hover:text-[#2ea44f] transition-colors"
                 >
                   Past Events
@@ -250,10 +250,10 @@ export default function Navbar() {
                     {/* <Link href="/events/circulars" className="block px-4 py-2 text-xs text-[#0b3d5c] hover:text-[#2ea44f]">
                       Circulars
                     </Link> */}
-                    <Link href="/events" className="block px-4 py-2 text-xs text-[#0b3d5c] hover:text-[#2ea44f]">
+                    <Link href="/events?tab=future" className="block px-4 py-2 text-xs text-[#0b3d5c] hover:text-[#2ea44f]">
                       Upcoming Events
                     </Link>
-                    <Link href="/events" className="block px-4 py-2 text-xs text-[#0b3d5c] hover:text-[#2ea44f]">
+                    <Link href="/events?tab=past" className="block px-4 py-2 text-xs text-[#0b3d5c] hover:text-[#2ea44f]">
                       Past Events
                     </Link>
                   </div>

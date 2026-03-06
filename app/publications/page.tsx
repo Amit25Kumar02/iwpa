@@ -47,14 +47,13 @@ export default function PublicationsPage() {
         
         const formatted = publicationsArray.map((item: any, index: number) => ({
           id: item.id,
-          date: 'No date',
-          year: new Date().getFullYear(),
+          date: item.date || 'No date',
+          year: item.date ? new Date(item.date).getFullYear() : new Date().getFullYear(),
           img: formatImageUrl(item.img?.url),
           title: `Publication ${index + 1}`,
         }));
         
         setPublications(formatted);
-        setSelectedYear(formatted[0]?.year || null);
       } catch (error) {
         console.error('Failed to fetch data:', error);
       } finally {
@@ -64,7 +63,7 @@ export default function PublicationsPage() {
     fetchData();
   }, []);
 
-  const years = [...new Set(publications.map((p) => p.year))];
+  const years = [...new Set(publications.map((p) => p.year))].sort((a, b) => b - a);
   const filtered = selectedYear
     ? publications.filter((p) => p.year === selectedYear)
     : publications;
@@ -78,8 +77,8 @@ export default function PublicationsPage() {
         <div className="text-center py-20">Loading...</div>
       ) : (
         <>
-        <section className="py-10 md:py-20 bg-[#F8FAFC]">
-          <div className="text-center mb-12 md:px-20">
+        <section className="py-8 md:py-20 bg-[#F8FAFC] px-4">
+          <div className="text-center mb-8 md:mb-12 max-w-7xl mx-auto">
         {header?.badge && (
           <span className="inline-flex items-center gap-2 bg-[#1F7A4D0F] border-[0.86px] border-[#1F7A4D33] text-[#1F7A4D] px-4 py-2 rounded-md text-sm font-medium mb-4">
             {header.badge_img && header.badge_img !== '' && (
@@ -94,19 +93,19 @@ export default function PublicationsPage() {
         )}
 
         {header?.title && (
-          <h2 className="text-3xl md:text-4xl font-bold text-[#001233]">
+          <h2 className="text-2xl md:text-4xl font-bold text-[#001233]">
             {header.title}
           </h2>
         )}
       </div>
 
       {/* Year Filters */}
-      <div className="flex flex-wrap justify-center gap-3 mx-auto w-fit mb-10 md:px-20 bg-[#FFFFFF] shadow-sm px-4 py-3 rounded-lg">
+      <div className="flex flex-wrap justify-center gap-2 md:gap-3 mx-auto w-fit mb-8 md:mb-10 bg-[#FFFFFF] shadow-sm px-3 md:px-4 py-2 md:py-3 rounded-lg max-w-7xl">
         {years.map((year) => (
           <button
             key={year}
-            onClick={() => setSelectedYear(year)}
-            className={`px-8 py-2 rounded-md text-lg font-semibold ${
+            onClick={() => setSelectedYear(selectedYear === year ? null : year)}
+            className={`px-4 md:px-8 py-2 rounded-md text-sm md:text-lg font-semibold cursor-pointer ${
               selectedYear === year
                 ? "bg-[#1F7A4D] text-[#ffffff]"
                 : "bg-[#F6F8FA] text-[#001233] hover:bg-[#e2e8f0]"
@@ -118,17 +117,17 @@ export default function PublicationsPage() {
       </div>
 
       {/* Publication Grid */}
-      <div className="grid md:grid-cols-4 gap-6 md:px-46">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 max-w-7xl mx-auto">
         {filtered.length > 0 ? filtered.map((publication) => (
           <div
             key={publication.id}
-            className="bg-white w-[281px] h-[281px] rounded-sm overflow-hidden shadow-sm border border-gray-200 "
+            className="bg-white w-full aspect-square rounded-sm overflow-hidden shadow-sm border border-gray-200"
           >
             {publication.img && publication.img !== '' ? (
               <img
                 src={publication.img}
                 alt={`Publication ${publication.year}`}
-                className="w-[281px] h-[281px]  rounded-sm mb-3"
+                className="w-full h-full object-cover rounded-sm"
               />
             ) : (
               <div className="w-full h-48 bg-gray-100 rounded-lg mb-3 flex items-center justify-center">

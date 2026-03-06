@@ -1,6 +1,6 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import { useState, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 import axios from "axios";
 import InnerPageLayout from "@/components/layout/InnerPageLayout";
 import Image from "next/image";
@@ -8,6 +8,8 @@ import { ArrowRight, Calendar } from "lucide-react";
 import ConferencesPage from "./conferences/page";
 
 export default function EventsPage() {
+  const searchParams = useSearchParams();
+  const tab = searchParams.get('tab') || 'future';
   const [header, setHeader] = useState<any>(null);
   const [meetings, setMeetings] = useState<any[]>([]);
   const [conferences, setConferences] = useState<any[]>([]);
@@ -88,7 +90,15 @@ export default function EventsPage() {
 
       {/* 🔹 Meetings List */}
       <div className="space-y-3 md:space-y-4 max-w-7xl mx-auto mb-12 md:mb-16 px-4">
-        {meetings.length > 0 && meetings.map((event: any) => (
+        {meetings.length > 0 && meetings
+          .filter((event: any) => {
+            const eventDate = new Date(event.date);
+            const today = new Date();
+            today.setHours(0, 0, 0, 0);
+            eventDate.setHours(0, 0, 0, 0);
+            return tab === 'future' ? eventDate >= today : eventDate < today;
+          })
+          .map((event: any) => (
           <div
             key={event.id}
             className="flex flex-col sm:flex-row sm:justify-between sm:items-center bg-[#FFFFFF] border border-[#E2E8F0] shadow-sm rounded-lg px-4 md:px-6 py-6 gap-3 sm:gap-0"
